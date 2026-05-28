@@ -20,8 +20,11 @@
       0%, 100% { filter: drop-shadow(0 0 4px rgba(255,0,127,0.3)); }
       50% { filter: drop-shadow(0 0 12px rgba(255,0,127,0.7)); }
     }
+    @keyframes glowPulseAmber {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(251,191,36,0.3)); }
+      50% { filter: drop-shadow(0 0 12px rgba(251,191,36,0.7)); }
+    }
     .node { transition: all 0.3s ease; }
-    .node:hover { transform: scale(1.05); }
     .active-line {
       stroke-dasharray: 15, 15;
       animation: laser 3s linear infinite;
@@ -41,26 +44,29 @@
       <stop offset="0%" stop-color="#ff0844"/>
       <stop offset="100%" stop-color="#ffb199"/>
     </linearGradient>
+    <linearGradient id="amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f293d" stroke-width="1" opacity="0.4"/>
     </pattern>
   </defs>
 
   <rect width="100%" height="100%" fill="url(#bgGlow)"/>
-  
+
   <g style="animation: gridMove 10s linear infinite;">
     <rect width="100%" height="200%" fill="url(#grid)" y="-100%"/>
   </g>
 
   <!-- Connections -->
   <g stroke-width="1.5" fill="none" opacity="0.6">
-    <!-- Center to Nodes -->
-    <line x1="500" y1="180" x2="220" y2="100" stroke="#00f2fe" class="active-line"/>
-    <line x1="500" y1="180" x2="780" y2="100" stroke="#ff0844" class="active-line"/>
-    <line x1="500" y1="180" x2="220" y2="260" stroke="#00f2fe" stroke-dasharray="4,4"/>
-    <line x1="500" y1="180" x2="780" y2="260" stroke="#ff0844" stroke-dasharray="4,4"/>
-    <line x1="500" y1="180" x2="500" y2="60" stroke="#9ca3af" stroke-dasharray="2,4"/>
-    <line x1="500" y1="180" x2="500" y2="300" stroke="#9ca3af" stroke-dasharray="2,4"/>
+    <line x1="500" y1="180" x2="200" y2="90" stroke="#00f2fe" class="active-line"/>
+    <line x1="500" y1="180" x2="800" y2="90" stroke="#ff0844" class="active-line"/>
+    <line x1="500" y1="180" x2="200" y2="270" stroke="#00f2fe" stroke-dasharray="4,4"/>
+    <line x1="500" y1="180" x2="800" y2="270" stroke="#ff0844" stroke-dasharray="4,4"/>
+    <line x1="500" y1="180" x2="500" y2="55" stroke="#fbbf24" stroke-dasharray="2,4"/>
+    <line x1="500" y1="180" x2="500" y2="305" stroke="#9ca3af" stroke-dasharray="2,4"/>
   </g>
 
   <!-- Center Core -->
@@ -72,51 +78,53 @@
     <text y="12" text-anchor="middle" fill="#9ca3af" font-size="10" font-weight="600" letter-spacing="1">MAP</text>
   </g>
 
-  <!-- Node: Expo/Mobile -->
-  <g class="node" transform="translate(220, 100)">
+  <!-- Node: Expo/Mobile — 16 -->
+  <g class="node" transform="translate(200, 90)">
     <circle r="30" fill="#0f172a" stroke="url(#cyan)" stroke-width="2.5" style="animation: glowPulseCyan 5s infinite;"/>
     <text y="-40" text-anchor="middle" fill="#e5e7eb" font-size="13" font-weight="700">NATIVE &amp; EXPO</text>
     <text y="5" text-anchor="middle" fill="#00f2fe" font-size="16" font-weight="800">16</text>
-    <text y="42" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">CAPABILITIES</text>
+    <text y="42" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">SKILLS</text>
   </g>
 
-  <!-- Node: Motion/GSAP -->
-  <g class="node" transform="translate(780, 100)">
+  <!-- Node: Motion/GSAP — 10 -->
+  <g class="node" transform="translate(800, 90)">
     <circle r="30" fill="#0f172a" stroke="url(#pink)" stroke-width="2.5" style="animation: glowPulsePink 5s infinite;"/>
-    <text y="-40" text-anchor="middle" fill="#e5e7eb" font-size="13" font-weight="700">MOTION &amp; GSAP</text>
-    <text y="5" text-anchor="middle" fill="#ff0844" font-size="16" font-weight="800">9</text>
-    <text y="42" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">CAPABILITIES</text>
+    <text y="-40" text-anchor="middle" fill="#e5e7eb" font-size="13" font-weight="700">MOTION &amp; ANIMATION</text>
+    <text y="5" text-anchor="middle" fill="#ff0844" font-size="16" font-weight="800">10</text>
+    <text y="42" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">SKILLS</text>
   </g>
 
-  <!-- Node: DB/Supabase -->
-  <g class="node" transform="translate(220, 260)">
+  <!-- Node: DB/Supabase — 2 -->
+  <g class="node" transform="translate(200, 270)">
     <rect x="-25" y="-25" width="50" height="50" rx="8" fill="#0f172a" stroke="url(#cyan)" stroke-width="2"/>
     <text y="-35" text-anchor="middle" fill="#e5e7eb" font-size="13" font-weight="700">POSTGRES DB</text>
     <text y="5" text-anchor="middle" fill="#00f2fe" font-size="16" font-weight="800">2</text>
-    <text y="38" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">CAPABILITIES</text>
+    <text y="38" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">SKILLS</text>
   </g>
 
-  <!-- Node: Monetization -->
-  <g class="node" transform="translate(780, 260)">
+  <!-- Node: Monetization — 15 -->
+  <g class="node" transform="translate(800, 270)">
     <rect x="-25" y="-25" width="50" height="50" rx="8" fill="#0f172a" stroke="url(#pink)" stroke-width="2"/>
     <text y="-35" text-anchor="middle" fill="#e5e7eb" font-size="13" font-weight="700">MONETIZATION</text>
     <text y="5" text-anchor="middle" fill="#ff0844" font-size="16" font-weight="800">15</text>
-    <text y="38" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">CAPABILITIES</text>
+    <text y="38" text-anchor="middle" fill="#6b7280" font-size="10" font-weight="600">SKILLS</text>
   </g>
 
-  <!-- Node: Frontend -->
-  <g class="node" transform="translate(500, 60)">
-    <path d="M 0 -20 L 20 0 L 0 20 L -20 0 Z" fill="#0f172a" stroke="#9ca3af" stroke-width="2"/>
-    <text x="30" y="4" fill="#e5e7eb" font-size="12" font-weight="700" text-anchor="start">UI/UX ARCHITECTURE (6)</text>
+  <!-- Node: Frontend & Web — 5 -->
+  <g class="node" transform="translate(500, 55)">
+    <path d="M 0 -18 L 18 0 L 0 18 L -18 0 Z" fill="#0f172a" stroke="url(#amber)" stroke-width="2" style="animation: glowPulseAmber 6s infinite;"/>
+    <text x="28" y="5" fill="#e5e7eb" font-size="12" font-weight="700" text-anchor="start">FRONTEND &amp; WEB (5)</text>
   </g>
 
-  <!-- Node: Diagnostics -->
-  <g class="node" transform="translate(500, 300)">
-    <path d="M 0 -20 L 20 0 L 0 20 L -20 0 Z" fill="#0f172a" stroke="#9ca3af" stroke-width="2"/>
-    <text x="30" y="4" fill="#e5e7eb" font-size="12" font-weight="700" text-anchor="start">DIAGNOSTICS &amp; AGENTS (9)</text>
+  <!-- Node: Diagnostics & Agent Tooling — 9 -->
+  <g class="node" transform="translate(500, 305)">
+    <path d="M 0 -18 L 18 0 L 0 18 L -18 0 Z" fill="#0f172a" stroke="#9ca3af" stroke-width="2"/>
+    <text x="28" y="5" fill="#e5e7eb" font-size="12" font-weight="700" text-anchor="start">DIAGNOSTICS &amp; AGENTS (9)</text>
   </g>
 
-  <!-- Top left telemetry -->
+  <!-- Telemetry -->
   <text x="20" y="30" fill="#00f2fe" font-size="10" font-weight="700" letter-spacing="1">TOTAL LOADED: 57</text>
   <text x="20" y="45" fill="#6b7280" font-size="10" font-weight="600">STATUS: ACTIVE</text>
+  <text x="980" y="30" fill="#6b7280" font-size="9" font-weight="600" text-anchor="end">48 GLOBAL + 9 PLUGIN</text>
+  <text x="980" y="45" fill="#374151" font-size="9" font-weight="600" text-anchor="end">CLINE · ROO CODE · ANTIGRAVITY</text>
 </svg>

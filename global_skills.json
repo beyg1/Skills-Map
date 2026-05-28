@@ -1,0 +1,416 @@
+[
+  {
+    "name": "add-app-clip",
+    "path": "/home/darth/.agents/skills/add-app-clip",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "algorithmic-art",
+    "path": "/home/darth/.agents/skills/algorithmic-art",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "app-screenshot-generator",
+    "path": "/home/darth/.agents/skills/app-screenshot-generator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "building-native-ui",
+    "path": "/home/darth/.agents/skills/building-native-ui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "create-revenuecat-project",
+    "path": "/home/darth/.agents/skills/create-revenuecat-project",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "dotlottie-web",
+    "path": "/home/darth/.agents/skills/dotlottie-web",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "eas-update-insights",
+    "path": "/home/darth/.agents/skills/eas-update-insights",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-api-routes",
+    "path": "/home/darth/.agents/skills/expo-api-routes",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-brownfield",
+    "path": "/home/darth/.agents/skills/expo-brownfield",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-cicd-workflows",
+    "path": "/home/darth/.agents/skills/expo-cicd-workflows",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-deployment",
+    "path": "/home/darth/.agents/skills/expo-deployment",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-dev-client",
+    "path": "/home/darth/.agents/skills/expo-dev-client",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-module",
+    "path": "/home/darth/.agents/skills/expo-module",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-tailwind-setup",
+    "path": "/home/darth/.agents/skills/expo-tailwind-setup",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "Expo UI Jetpack Compose",
+    "path": "/home/darth/.agents/skills/expo-ui-jetpack-compose",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "Expo UI SwiftUI",
+    "path": "/home/darth/.agents/skills/expo-ui-swiftui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "frontend-design",
+    "path": "/home/darth/.agents/skills/frontend-design",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-core",
+    "path": "/home/darth/.agents/skills/gsap-core",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-performance",
+    "path": "/home/darth/.agents/skills/gsap-performance",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-plugins",
+    "path": "/home/darth/.agents/skills/gsap-plugins",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-react",
+    "path": "/home/darth/.agents/skills/gsap-react",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-scrolltrigger",
+    "path": "/home/darth/.agents/skills/gsap-scrolltrigger",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-timeline",
+    "path": "/home/darth/.agents/skills/gsap-timeline",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gsap-utils",
+    "path": "/home/darth/.agents/skills/gsap-utils",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "integrate-revenuecat",
+    "path": "/home/darth/.agents/skills/integrate-revenuecat",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "mcp-builder",
+    "path": "/home/darth/.agents/skills/mcp-builder",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "motion-design",
+    "path": "/home/darth/.agents/skills/motion-design",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "native-data-fetching",
+    "path": "/home/darth/.agents/skills/native-data-fetching",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat",
+    "path": "/home/darth/.agents/skills/revenuecat",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-charts",
+    "path": "/home/darth/.agents/skills/revenuecat-charts",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-customer-center",
+    "path": "/home/darth/.agents/skills/revenuecat-customer-center",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-entitlements-gate",
+    "path": "/home/darth/.agents/skills/revenuecat-entitlements-gate",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-identify-user",
+    "path": "/home/darth/.agents/skills/revenuecat-identify-user",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-migrate",
+    "path": "/home/darth/.agents/skills/revenuecat-migrate",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-paywall",
+    "path": "/home/darth/.agents/skills/revenuecat-paywall",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-purchase-flow",
+    "path": "/home/darth/.agents/skills/revenuecat-purchase-flow",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-status",
+    "path": "/home/darth/.agents/skills/revenuecat-status",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-testing-setup",
+    "path": "/home/darth/.agents/skills/revenuecat-testing-setup",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "revenuecat-troubleshoot",
+    "path": "/home/darth/.agents/skills/revenuecat-troubleshoot",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "skill-creator",
+    "path": "/home/darth/.agents/skills/skill-creator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "supabase",
+    "path": "/home/darth/.agents/skills/supabase",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "supabase-postgres-best-practices",
+    "path": "/home/darth/.agents/skills/supabase-postgres-best-practices",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "superwall",
+    "path": "/home/darth/.agents/skills/superwall",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "superwall-editor",
+    "path": "/home/darth/.agents/skills/superwall-editor",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "upgrading-expo",
+    "path": "/home/darth/.agents/skills/upgrading-expo",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "use-dom",
+    "path": "/home/darth/.agents/skills/use-dom",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  }
+]

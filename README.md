@@ -15,7 +15,7 @@
 * **Cross-Platform Bridges**: SwiftUI and Jetpack Compose native module generation mapped directly to React Native/Expo.
 * **Architecture**: DOM Components (`use-dom`), API Routes (`app/+api.ts`), and brownfield integration.
 * **Pipelines**: EAS update telemetry, CI/CD automated deployments, and App Clip configurations.
-* *Skills*: `Expo UI *`, `expo-*` suite, `building-native-ui`, `eas-update-insights` (15 total).
+* *Skills*: `Expo UI *`, `expo-*` suite, `building-native-ui`, `native-data-fetching`, `eas-update-insights` (16 total).
 
 ### 📊 Monetization (RevenueCat, Superwall)
 * **Subscription Engine**: Cross-platform StoreKit/Billing setup, entitlement gating, and legacy migration handling.
@@ -25,7 +25,7 @@
 ### 🎨 Frontend & UI Architecture
 * **Design Systems**: Brutalist/neon/glassmorphic custom generation avoiding generic AI defaults. Generative algorithmic SVGs.
 * **Modern Standards**: View Transitions, Container Queries, and `:has()` integrations.
-* *Skills*: `frontend-design`, `algorithmic-art`, `modern-web-guidance`, `app-screenshot-generator` (4 total).
+* *Skills*: `frontend-design`, `algorithmic-art`, `design-an-interface`, `modern-web-guidance`, `app-screenshot-generator` (6 total).
 
 ### 🗄️ Database (Supabase, Postgres)
 * **Performance**: GIN/Covering indexes, JSONB tuning, and transaction pooling (Supavisor).
@@ -35,4 +35,4 @@
 ### 🛠️ Diagnostics & Agent Tooling
 * **Browser Instrumentation**: DevTools MCP integration for CPU/Memory profiling (Heap snapshots, LCP candidates) and a11y WCAG audits.
 * **Swarm Config**: Google Antigravity SDK coordination and MCP/Skill scaffolding.
-* *Skills*: `chrome-devtools`, `memory-leak-debugging`, `google-antigravity-sdk`, `skill-creator`, `mcp-builder` (10 total).
+* *Skills*: `improve-codebase-architecture`, `chrome-devtools`, `memory-leak-debugging`, `google-antigravity-sdk`, `skill-creator`, `mcp-builder` (9 total).

@@ -1,0 +1,156 @@
+<svg viewBox="0 0 1000 360" width="100%" xmlns="http://www.w3.org/2000/svg" style="background:#0a0d14; border-radius:16px; border:1px solid #1f293d; overflow:hidden; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(40px); }
+    }
+    @keyframes laser {
+      0% { stroke-dashoffset: 200; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes rotRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(0,229,255,0.4)) drop-shadow(0 0 15px rgba(0,229,255,0.2)); }
+      50% { filter: drop-shadow(0 0 15px rgba(0,229,255,0.8)) drop-shadow(0 0 30px rgba(0,229,255,0.5)); }
+    }
+    @keyframes glowPulsePink {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(255,0,127,0.4)) drop-shadow(0 0 15px rgba(255,0,127,0.2)); }
+      50% { filter: drop-shadow(0 0 15px rgba(255,0,127,0.8)) drop-shadow(0 0 30px rgba(255,0,127,0.5)); }
+    }
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .node { cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .node:hover { transform: scale(1.1); }
+    .active-line {
+      stroke-dasharray: 20, 20;
+      animation: laser 4s linear infinite;
+    }
+  </style>
+
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#141d30"/>
+      <stop offset="100%" stop-color="#0a0d14"/>
+    </radialGradient>
+    
+    <!-- Cyan & Pink Accent Gradients -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844"/>
+      <stop offset="100%" stop-color="#ffb199"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f293d" stroke-width="1" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="url(#bgGlow)"/>
+
+  <!-- Animated Grid Pattern -->
+  <g style="animation: gridMove 8s linear infinite;">
+    <rect width="100%" height="200%" fill="url(#grid)" y="-100%"/>
+  </g>
+
+  <!-- Glowing Center Ring -->
+  <g transform="translate(500, 180)">
+    <circle r="140" fill="none" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="10,15" style="animation: rotRing 60s linear infinite; transform-origin: center;"/>
+    <circle r="110" fill="none" stroke="#00f2fe" stroke-width="1" opacity="0.2" stroke-dasharray="4,8" style="animation: rotRing 20s linear infinite reverse; transform-origin: center;"/>
+    <circle r="65" fill="#0c1322" stroke="url(#cyanGrad)" stroke-width="2" style="animation: glowPulse 4s ease-in-out infinite;"/>
+    <circle r="55" fill="none" stroke="url(#pinkGrad)" stroke-width="1" stroke-dasharray="15,5" style="animation: rotRing 15s linear infinite; transform-origin: center;"/>
+    
+    <g style="animation: floatText 3s ease-in-out infinite;">
+      <text y="-8" text-anchor="middle" fill="#00e5ff" font-size="12" font-weight="900" letter-spacing="4">WORKSPACE</text>
+      <text y="10" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="900" letter-spacing="1">CAPABILITIES</text>
+      <text y="24" text-anchor="middle" fill="#ff007f" font-size="9" font-weight="800" letter-spacing="3">TRACKER</text>
+    </g>
+  </g>
+
+  <!-- Dynamic Connection Lasers -->
+  <g>
+    <line x1="500" y1="180" x2="220" y2="90" stroke="#00f2fe" stroke-width="1.5" opacity="0.5" class="active-line"/>
+    <line x1="500" y1="180" x2="780" y2="90" stroke="#ff007f" stroke-width="1.5" opacity="0.5" class="active-line"/>
+    <line x1="500" y1="180" x2="160" y2="240" stroke="#00f2fe" stroke-width="1" opacity="0.4"/>
+    <line x1="500" y1="180" x2="840" y2="240" stroke="#ff007f" stroke-width="1" opacity="0.4"/>
+    <line x1="500" y1="180" x2="500" y2="50" stroke="#ffffff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+    <line x1="500" y1="180" x2="500" y2="310" stroke="#ffffff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+
+    <path d="M 220 90 Q 500 20 780 90" fill="none" stroke="#2b3a57" stroke-width="1.5" stroke-dasharray="4,6"/>
+    <path d="M 160 240 Q 500 340 840 240" fill="none" stroke="#2b3a57" stroke-width="1.5" stroke-dasharray="4,6"/>
+    <path d="M 220 90 L 160 240" fill="none" stroke="#2b3a57" stroke-width="1.5"/>
+    <path d="M 780 90 L 840 240" fill="none" stroke="#2b3a57" stroke-width="1.5"/>
+  </g>
+
+  <!-- Node 1: EXPO & NATIVE MOBILE -->
+  <g class="node" transform="translate(220, 90)">
+    <circle r="36" fill="#080f1e" stroke="url(#cyanGrad)" stroke-width="3" style="animation: glowPulse 5s ease-in-out infinite;"/>
+    <path d="M-10,-8 L10,-8 L0,12 Z" fill="#00f2fe" opacity="0.8"/>
+    <text y="-45" text-anchor="middle" fill="#00e5ff" font-size="14" font-weight="900" letter-spacing="1">EXPO &amp; MOBILE</text>
+    <text y="50" text-anchor="middle" fill="#8f9cae" font-size="11" font-weight="500">15 Active Skills</text>
+  </g>
+
+  <!-- Node 2: MOTION & ANIMATION DESIGN -->
+  <g class="node" transform="translate(780, 90)">
+    <circle r="36" fill="#080f1e" stroke="url(#pinkGrad)" stroke-width="3" style="animation: glowPulsePink 5s ease-in-out infinite;"/>
+    <path d="M-15,0 Q-7.5,-15 0,0 T15,0" fill="none" stroke="#ff007f" stroke-width="3" stroke-linecap="round"/>
+    <text y="-45" text-anchor="middle" fill="#ff007f" font-size="14" font-weight="900" letter-spacing="1">MOTION &amp; GSAP</text>
+    <text y="50" text-anchor="middle" fill="#8f9cae" font-size="11" font-weight="500">9 Active Skills</text>
+  </g>
+
+  <!-- Node 3: SUPABASE & POSTGRES -->
+  <g class="node" transform="translate(160, 240)">
+    <circle r="30" fill="#080f1e" stroke="url(#cyanGrad)" stroke-width="2"/>
+    <path d="M-8,-8 L8,-8 L8,8 L-8,8 Z" fill="none" stroke="#00f2fe" stroke-width="2"/>
+    <text y="-38" text-anchor="middle" fill="#00e5ff" font-size="13" font-weight="800" letter-spacing="1">SUPABASE &amp; DB</text>
+    <text y="42" text-anchor="middle" fill="#8f9cae" font-size="10" font-weight="500">2 Active Skills</text>
+  </g>
+
+  <!-- Node 4: PAYWALLS & SUBSCRIPTIONS -->
+  <g class="node" transform="translate(840, 240)">
+    <circle r="30" fill="#080f1e" stroke="url(#pinkGrad)" stroke-width="2"/>
+    <circle r="8" fill="none" stroke="#ff007f" stroke-width="2"/>
+    <path d="M0,-8 L0,8" stroke="#ff007f" stroke-width="2"/>
+    <text y="-38" text-anchor="middle" fill="#ff007f" font-size="13" font-weight="800" letter-spacing="1">PAYWALLS &amp; IAP</text>
+    <text y="42" text-anchor="middle" fill="#8f9cae" font-size="10" font-weight="500">15 Active Skills</text>
+  </g>
+
+  <!-- Node 5: DEV TOOLS & COMPILERS -->
+  <g class="node" transform="translate(500, 50)">
+    <circle r="22" fill="#080f1e" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+    <line x1="-6" y1="-6" x2="6" y2="6" stroke="#ffffff" stroke-width="2"/>
+    <text x="35" y="4" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1" text-anchor="start">DEV COMPILERS</text>
+  </g>
+
+  <!-- Node 6: DIAGNOSTICS & SYSTEM -->
+  <g class="node" transform="translate(500, 310)">
+    <circle r="22" fill="#080f1e" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+    <path d="M-8,4 L-2,-4 L4,2 L10,-8" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <text x="35" y="4" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1" text-anchor="start">DIAGNOSTICS</text>
+  </g>
+
+  <!-- HUD Telemetry -->
+  <g opacity="0.4">
+    <rect x="15" y="15" width="120" height="40" fill="none" stroke="#1f293d" stroke-width="1"/>
+    <text x="25" y="30" fill="#00e5ff" font-size="9" font-weight="700" letter-spacing="1">SYSTEM STABLE</text>
+    <text x="25" y="45" fill="#8f9cae" font-size="8">LATENCY: 12ms</text>
+
+    <rect x="865" y="15" width="120" height="40" fill="none" stroke="#1f293d" stroke-width="1"/>
+    <text x="875" y="30" fill="#ff007f" font-size="9" font-weight="700" letter-spacing="1">SKILLS ACTIVE</text>
+    <text x="875" y="45" fill="#ffffff" font-size="8">COUNT: 55 TOTAL</text>
+  </g>
+</svg>

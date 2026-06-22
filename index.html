@@ -1,1029 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills Map Dashboard</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
-    
-    <!-- GSAP Suite -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Draggable.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Capabilities Map</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
 
-    <style>
-        /* Step 1: CSS Design System */
-        :root {
-            /* Colors */
-            --bg: #050505; /* OLED Canvas */
-            --text: #F1F1F1;
-            --text-muted: rgba(255, 255, 255, 0.4);
-            --accent-cyan: #00FFFF;
-            --accent-magenta: #FF00FF;
-            --accent-yellow: #E5FF00;
-            --surface: rgba(255, 255, 255, 0.05);
-            --border: rgba(0, 255, 255, 0.2);
-            
-            /* Typography */
-            --font-display: 'Clash Display', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            --font-body: system-ui, -apple-system, sans-serif;
-            
-            /* Geometry */
-            --nav-height: 72px;
-        }
+    :root {
+      --bg-color: #050a15;
+      --panel-bg: rgba(10, 20, 40, 0.7);
+      --border-color: rgba(0, 255, 255, 0.2);
+      --border-glow: rgba(0, 255, 255, 0.5);
+      --text-main: #e0f2fe;
+      --accent-1: #00ffff; /* Cyan */
+      --accent-2: #ff00ff; /* Magenta */
+      --accent-3: #00ffaa; /* Neon Green */
+      --font-heading: 'Orbitron', sans-serif;
+      --font-body: 'Rajdhani', sans-serif;
+      --font-mono: 'Share Tech Mono', monospace;
+    }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100vh;
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            overscroll-behavior: none;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    /* Keyframe Animations */
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 30px 30px; }
+    }
+    @keyframes scanLine {
+      0% { transform: translateY(-100%); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    @keyframes dotBlink {
+      0%, 100% { opacity: 0.3; box-shadow: 0 0 2px currentColor; }
+      50% { opacity: 1; box-shadow: 0 0 10px currentColor; }
+    }
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(255, 255, 255, 0.1); box-shadow: none; }
+      50% { border-color: var(--card-color); box-shadow: 0 0 15px var(--card-color), inset 0 0 10px rgba(0, 0, 0, 0.5); }
+    }
+    @keyframes countPulse {
+      0%, 100% { opacity: 0.8; text-shadow: 0 0 5px currentColor; }
+      50% { opacity: 1; text-shadow: 0 0 15px currentColor; }
+    }
 
-        .layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Layer 1: Background Overlays */
-        #layer-1-canvas-bg {
-            z-index: 1;
-            pointer-events: none;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      padding: 1.5rem;
+      animation: gridMove 5s linear infinite;
+    }
 
-        .noise-overlay {
-            position: absolute;
-            inset: 0;
-            /* Inlined SVG noise filter */
-            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-            opacity: 0.03;
-            pointer-events: none;
-            mix-blend-mode: screen;
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
 
-        .crt-scanlines {
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.15),
-                rgba(0, 0, 0, 0.15) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            opacity: 0.4; /* Stronger CRT effect */
-            pointer-events: none;
-        }
+    /* Scanner Element */
+    .scanner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 3px;
+      background: var(--accent-1);
+      box-shadow: 0 0 15px var(--accent-1);
+      animation: scanLine 6s linear infinite;
+      z-index: 1000;
+      pointer-events: none;
+    }
 
-        .vignette {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, transparent 30%, #000 120%);
-            pointer-events: none;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
 
-        /* Layer 2: Particle Canvas */
-        #layer-2-particles {
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        #particle-canvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--accent-1);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 10px var(--accent-1), 0 0 20px var(--accent-1);
+      margin-bottom: 0.5rem;
+    }
 
-        /* Layer 4: Expanded Interior */
-        #layer-4-expanded {
-            z-index: 20;
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .subtitle {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--accent-3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
 
-        .expanded-content {
-            width: 800px;
-            height: 600px;
-            background: #F7F6F3;
-            border-radius: 2rem;
-            padding: 3rem;
-            box-sizing: border-box;
-            color: #2F3437;
-            position: relative;
-            opacity: 0;
-            transform: scale(0.9);
-            pointer-events: none;
-            overflow: hidden;
-        }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
 
-        .expanded-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
+    .category-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      animation: borderGlow 6s ease-in-out infinite;
+    }
 
-        .expanded-title {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: -0.02em;
-            color: #111111;
-        }
+    /* Stagger the glowing animations for a more chaotic sci-fi feel */
+    .category-card:nth-child(odd) { animation-delay: 1s; }
+    .category-card:nth-child(even) { animation-delay: 3s; }
+    .category-card:nth-child(3n) { animation-delay: 2s; }
 
-        .expanded-meta {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            color: #787774;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-        }
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px var(--card-color), inset 0 0 20px rgba(0, 0, 0, 0.7);
+    }
 
-        .close-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #EAEAEA;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 0.5rem;
+    }
 
-        .close-btn:hover {
-            transform: scale(0.95);
-            background: #DDDDDD;
-        }
+    .category-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--card-color);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
 
-        .close-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: #111111;
-        }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--card-color);
+      margin-right: 0.6rem;
+      animation: dotBlink 2s ease-in-out infinite;
+    }
 
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            overflow-y: auto;
-            max-height: 400px;
-            border-top: 1px solid #EAEAEA;
-        }
-        
-        /* Custom scrollbar for skills list */
-        .skills-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        .skills-list::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .skills-list::-webkit-scrollbar-thumb {
-            background: rgba(0,0,0,0.1);
-            border-radius: 3px;
-        }
+    .skill-count {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--card-color);
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: countPulse 3s ease-in-out infinite;
+    }
 
-        .skill-item {
-            padding: 1rem 0;
-            border-bottom: 1px solid #EAEAEA;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.6rem;
+    }
 
-        .skill-name {
-            font-size: 1rem;
-            font-weight: 500;
-        }
+    .skill-badge {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.5rem;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+      word-break: break-word;
+      line-height: 1.2;
+    }
 
-        .skill-type {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: #787774;
-            background: #EAEAEA;
-            padding: 0.2rem 0.5rem;
-            border-radius: 999px;
-        }
+    .skill-badge:hover {
+      border-color: var(--card-color);
+      color: var(--card-color);
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-        /* Layer 5: FOREGROUND HUD */
-        #layer-5-hud {
-            z-index: 50;
-            pointer-events: none;
-        }
+    /* Category Specific Colors */
+    .cat-native { --card-color: #61dafb; }
+    .cat-motion { --card-color: #ff00ff; }
+    .cat-monetization { --card-color: #00ffaa; }
+    .cat-game { --card-color: #ff3366; }
+    .cat-db { --card-color: #facc15; }
+    .cat-frontend { --card-color: #a855f7; }
+    .cat-diag { --card-color: #fb923c; }
 
-        .glass-pill-nav {
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.5rem 1.5rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); /* Apple Liquid Glass feel */
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            color: var(--text);
-            pointer-events: auto;
-        }
-
-        .coord {
-            position: absolute;
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            color: var(--accent-cyan);
-            opacity: 0.4;
-            letter-spacing: 0.05em;
-        }
-        .coord-tl { top: 2rem; left: 2rem; }
-        .coord-tr { top: 2rem; right: 2rem; text-align: right; }
-        .coord-bl { bottom: 2rem; left: 2rem; }
-        .coord-br { bottom: 2rem; right: 2rem; text-align: right; }
-
-        .skill-counter {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-counter .count {
-            color: var(--accent-yellow);
-            font-weight: 700;
-            font-size: 0.875rem;
-        }
-
-        .crosshair {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-        }
-        .cross-h, .cross-v {
-            position: absolute;
-            background: var(--accent-cyan);
-            opacity: 0.15;
-        }
-        .cross-h {
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            transform: translateY(-50%);
-        }
-        .cross-v {
-            top: 0;
-            left: 50%;
-            width: 1px;
-            height: 100%;
-            transform: translateX(-50%);
-        }
-
-        /* Layer 3: 3D CAROUSEL */
-        #layer-3-carousel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: 10;
-            perspective: 2000px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-section {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 15;
-            pointer-events: none;
-            width: 100%;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(4rem, 8vw, 8rem);
-            letter-spacing: -0.04em;
-            line-height: 0.9;
-            color: #FFFFFF;
-            margin: 0;
-        }
-        
-        .hero-title span {
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.4) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-            margin-top: 1rem;
-            text-transform: uppercase;
-        }
-
-        .carousel-container {
-            width: 380px;
-            height: 480px;
-            position: relative;
-            transform-style: preserve-3d;
-            z-index: 5;
-            /* opacity: 0; Hidden initially until hero fades */
-        }
-
-        .carousel-stage {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-        }
-
-        .carousel-cylinder {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-        }
-
-        /* Doppelrand Card Architecture */
-        .doppel-card {
-            position: absolute;
-            width: 380px;
-            height: 480px;
-            left: 0;
-            top: 0;
-            /* Outer Shell */
-            border-radius: 2rem;
-            border: 1px solid var(--border);
-            padding: 0.375rem; /* p-1.5 */
-            background: transparent;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            cursor: pointer;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .doppel-card::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 2rem;
-            background: radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 255, 255, 0.4), transparent 40%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .doppel-card:hover::before {
-            opacity: 1;
-        }
-        
-        .doppel-card:hover {
-            border-color: transparent;
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
-        }
-
-        .doppel-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: calc(2rem - 0.375rem);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            padding: 2rem;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text);
-            margin: 0;
-        }
-
-        .skill-count {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
-
-        .btn-in-btn {
-            margin-top: auto;
-            width: 100%;
-            height: 48px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 4px 0 20px;
-            box-sizing: border-box;
-            transition: background 0.3s ease;
-        }
-
-        .btn-text {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: var(--text);
-        }
-
-        .btn-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-circle svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--bg);
-        }
-
-    </style>
+    @media (max-width: 768px) {
+      .dashboard { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Animated Scanner Overlay -->
+  <div class="scanner"></div>
+  
+  <header>
+    <h1>Agent Capabilities Map</h1>
+    <div class="subtitle">System Initialization: 62 Core Protocols Loaded</div>
+  </header>
 
-    <!-- Layer 1: OLED Black + Noise + CRT -->
-    <div id="layer-1-canvas-bg" class="layer base-bg">
-        <div class="noise-overlay"></div>
-        <div class="crt-scanlines"></div>
-        <div class="vignette"></div>
+  <main class="dashboard">
+
+    <!-- Native & Expo -->
+    <div class="category-card cat-native">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>📱 Native & Expo</h2>
+        <span class="skill-count">15</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="add-app-clip">add-app-clip</div>
+        <div class="skill-badge" title="building-native-ui">building-native-ui</div>
+        <div class="skill-badge" title="eas-update-insights">eas-update-insights</div>
+        <div class="skill-badge" title="expo-api-routes">expo-api-routes</div>
+        <div class="skill-badge" title="expo-brownfield">expo-brownfield</div>
+        <div class="skill-badge" title="expo-cicd-workflows">expo-cicd-workflows</div>
+        <div class="skill-badge" title="expo-deployment">expo-deployment</div>
+        <div class="skill-badge" title="expo-dev-client">expo-dev-client</div>
+        <div class="skill-badge" title="expo-module">expo-module</div>
+        <div class="skill-badge" title="expo-tailwind-setup">expo-tailwind-setup</div>
+        <div class="skill-badge" title="expo-ui-jetpack-compose">expo-ui-jetpack</div>
+        <div class="skill-badge" title="expo-ui-swiftui">expo-ui-swiftui</div>
+        <div class="skill-badge" title="native-data-fetching">native-data-fetch</div>
+        <div class="skill-badge" title="upgrading-expo">upgrading-expo</div>
+        <div class="skill-badge" title="use-dom">use-dom</div>
+      </div>
     </div>
 
-    <!-- Layer 2: PARTICLE CANVAS (Background) -->
-    <div id="layer-2-particles" class="layer">
-        <canvas id="particle-canvas"></canvas>
+    <!-- Motion & Animation -->
+    <div class="category-card cat-motion">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🎬 Motion & Anim</h2>
+        <span class="skill-count">11</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="algorithmic-art">algorithmic-art</div>
+        <div class="skill-badge" title="dotlottie-web">dotlottie-web</div>
+        <div class="skill-badge" title="gsap-core">gsap-core</div>
+        <div class="skill-badge" title="gsap-performance">gsap-performance</div>
+        <div class="skill-badge" title="gsap-plugins">gsap-plugins</div>
+        <div class="skill-badge" title="gsap-react">gsap-react</div>
+        <div class="skill-badge" title="gsap-scrolltrigger">gsap-scrolltrigger</div>
+        <div class="skill-badge" title="gsap-timeline">gsap-timeline</div>
+        <div class="skill-badge" title="gsap-utils">gsap-utils</div>
+        <div class="skill-badge" title="motion-design">motion-design</div>
+        <div class="skill-badge" title="text-to-lottie">text-to-lottie</div>
+      </div>
     </div>
 
-    <!-- Layer 4: EXPANDED CARD (Focus State) -->
-    <div id="layer-4-expanded" class="layer">
-        <!-- Expanded Card Content Injected Here -->
+    <!-- Monetization -->
+    <div class="category-card cat-monetization">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>💰 Monetization</h2>
+        <span class="skill-count">15</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="create-revenuecat-project">create-rc-project</div>
+        <div class="skill-badge" title="integrate-revenuecat">integrate-rc</div>
+        <div class="skill-badge" title="revenuecat">revenuecat</div>
+        <div class="skill-badge" title="revenuecat-charts">rc-charts</div>
+        <div class="skill-badge" title="revenuecat-customer-center">rc-customer-ctr</div>
+        <div class="skill-badge" title="revenuecat-entitlements-gate">rc-entitle-gate</div>
+        <div class="skill-badge" title="revenuecat-identify-user">rc-identify-user</div>
+        <div class="skill-badge" title="revenuecat-migrate">rc-migrate</div>
+        <div class="skill-badge" title="revenuecat-paywall">rc-paywall</div>
+        <div class="skill-badge" title="revenuecat-purchase-flow">rc-purchase-flow</div>
+        <div class="skill-badge" title="revenuecat-status">rc-status</div>
+        <div class="skill-badge" title="revenuecat-testing-setup">rc-testing-setup</div>
+        <div class="skill-badge" title="revenuecat-troubleshoot">rc-troubleshoot</div>
+        <div class="skill-badge" title="superwall">superwall</div>
+        <div class="skill-badge" title="superwall-editor">superwall-editor</div>
+      </div>
     </div>
 
-    <!-- Layer 5: FOREGROUND HUD -->
-    <div id="layer-5-hud" class="layer">
-        <nav class="glass-pill-nav">SKILLS MAP</nav>
-        
-        <div class="coord-tl coord">X: 0.00 Y: 0.00 Z: 0.00</div>
-        <div class="coord-tr coord">X: 0.00 Y: 0.00 Z: 0.00</div>
-        <div class="coord-bl coord">X: 0.00 Y: 0.00 Z: 0.00</div>
-        <div class="coord-br coord">X: 0.00 Y: 0.00 Z: 0.00</div>
-
-        <div class="skill-counter">
-            <span class="count">0</span> SKILLS MAPPED
-        </div>
-        
-        <div class="crosshair">
-            <div class="cross-h"></div>
-            <div class="cross-v"></div>
-        </div>
+    <!-- Game Development -->
+    <div class="category-card cat-game">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🎮 Game Dev</h2>
+        <span class="skill-count">9</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="threejs-3d-generator">threejs-3d-gen</div>
+        <div class="skill-badge" title="threejs-aaa-graphics-builder">threejs-aaa-gfx</div>
+        <div class="skill-badge" title="threejs-audio-generator">threejs-audio-gen</div>
+        <div class="skill-badge" title="threejs-debug-profiler">threejs-debug</div>
+        <div class="skill-badge" title="threejs-game-director">threejs-director</div>
+        <div class="skill-badge" title="threejs-game-ui-designer">threejs-ui-design</div>
+        <div class="skill-badge" title="threejs-gameplay-systems">threejs-gameplay</div>
+        <div class="skill-badge" title="threejs-image-generator">threejs-img-gen</div>
+        <div class="skill-badge" title="threejs-qa-release">threejs-qa-release</div>
+      </div>
     </div>
 
-    <!-- Layer 3: 3D CAROUSEL (Midground) -->
-    <div id="layer-3-carousel">
-        <section class="hero-section">
-            <h1 class="hero-title">SKILLS MAP</h1>
-            <p class="hero-subtitle" style="opacity: 0;">112 Agent Capabilities Visualized</p>
-        </section>
-
-        <div class="carousel-container">
-            <div class="carousel-stage">
-                <div class="carousel-cylinder">
-                    <!-- Cards injected by JS -->
-                </div>
-            </div>
-        </div>
+    <!-- Database & Infrastructure -->
+    <div class="category-card cat-db">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🗄️ Database & Infra</h2>
+        <span class="skill-count">6</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="claimable-postgres">claimable-pg</div>
+        <div class="skill-badge" title="cloudflare">cloudflare</div>
+        <div class="skill-badge" title="neon-postgres">neon-postgres</div>
+        <div class="skill-badge" title="neon-postgres-egress-optimizer">neon-pg-egress</div>
+        <div class="skill-badge" title="supabase">supabase</div>
+        <div class="skill-badge" title="supabase-postgres-best-practices">supabase-pg-best</div>
+      </div>
     </div>
 
-    <script>
-        // Step 2: Generative Background Canvas
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d', { alpha: false }); // Optimize for no alpha background
-        
-        let width, height;
-        const particles = [];
-        const numParticles = 600; // Calibrated for performance and density
-        const maxDistanceSq = 100 * 100; // Square distance for faster checks
-        
-        // Colors from Design System
-        const colorCyan = 'rgba(0, 255, 255, 0.15)';
-        const colorMagenta = 'rgba(255, 0, 255, 0.15)';
+    <!-- Frontend & Web -->
+    <div class="category-card cat-frontend">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🎨 Frontend & Web</h2>
+        <span class="skill-count">3</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="app-screenshot-generator">app-screenshot</div>
+        <div class="skill-badge" title="design-an-interface">design-interface</div>
+        <div class="skill-badge" title="frontend-design">frontend-design</div>
+      </div>
+    </div>
 
-        function initCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
+    <!-- Diagnostics & Agents -->
+    <div class="category-card cat-diag">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🛠️ Diagnostics</h2>
+        <span class="skill-count">3</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="improve-codebase-architecture">improve-arch</div>
+        <div class="skill-badge" title="mcp-builder">mcp-builder</div>
+        <div class="skill-badge" title="skill-creator">skill-creator</div>
+      </div>
+    </div>
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.4;
-                this.isCyan = Math.random() > 0.5;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                // Screen wrap
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-                if (this.y < 0) this.y = height;
-                if (this.y > height) this.y = 0;
-            }
-        }
-
-        function initParticles() {
-            particles.length = 0;
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        let lastTime = 0;
-        function render(timestamp) {
-            // Delta time for smooth animation (optional, but good practice)
-            const dt = timestamp - lastTime;
-            lastTime = timestamp;
-
-            // Clear with OLED Black
-            ctx.fillStyle = '#050505';
-            ctx.fillRect(0, 0, width, height);
-
-            // Update particles
-            for (let i = 0; i < numParticles; i++) {
-                if (!particles[i]) continue;
-                particles[i].x += particles[i].vx * window.particleSpeedMultiplier;
-                particles[i].y += particles[i].vy * window.particleSpeedMultiplier;
-
-                // Screen wrap
-                if (particles[i].x < 0) particles[i].x = width;
-                if (particles[i].x > width) particles[i].x = 0;
-                if (particles[i].y < 0) particles[i].y = height;
-                if (particles[i].y > height) particles[i].y = 0;
-            }
-
-            // Draw connections (optimized loop)
-            ctx.lineWidth = 0.5;
-            
-            for (let i = 0; i < numParticles; i++) {
-                const p1 = particles[i];
-                
-                // Draw particle itself
-                ctx.fillStyle = p1.isCyan ? colorCyan : colorMagenta;
-                ctx.beginPath();
-                ctx.arc(p1.x, p1.y, 1, 0, Math.PI * 2);
-                ctx.fill();
-
-                // Draw lines to nearby particles
-                // We only check forward in the array to avoid drawing duplicate lines (i to j, j to i)
-                // And we step by a prime number or larger gap to reduce O(N^2) load, but for a true mesh we need to check closer
-                for (let j = i + 1; j < numParticles; j += 2) { 
-                    const p2 = particles[j];
-                    const dx = p1.x - p2.x;
-                    const dy = p1.y - p2.y;
-                    const distSq = dx * dx + dy * dy;
-
-                    if (distSq < maxDistanceSq) {
-                        ctx.strokeStyle = p1.isCyan ? colorCyan : colorMagenta;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(render);
-        }
-
-        // Initialize
-        initCanvas();
-        initParticles();
-        requestAnimationFrame(render);
-
-        // Resize handler
-        window.addEventListener('resize', () => {
-            initCanvas();
-            // We don't re-init particles, they'll just wrap to the new boundaries
-        });
-        
-        // Quick test animation for the counter
-        gsap.to(".count", {
-            innerHTML: 112,
-            duration: 2.5,
-            snap: { innerHTML: 1 },
-            ease: "power2.out"
-        });
-
-        // Step 4: GSAP Choreography & Step 3: Carousel Generation
-        gsap.registerPlugin(ScrollTrigger, Draggable);
-        const categories = [
-            { title: "UI & Frontend", count: "24 SKILLS" },
-            { title: "Animation & Motion", count: "16 SKILLS" },
-            { title: "AI Image & Media", count: "12 SKILLS" },
-            { title: "Data & Analysis", count: "18 SKILLS" },
-            { title: "Architecture", count: "14 SKILLS" },
-            { title: "Cloud & Ops", count: "10 SKILLS" },
-            { title: "Content & Copy", count: "9 SKILLS" },
-            { title: "QA & Review", count: "9 SKILLS" }
-        ];
-
-        const cylinder = document.querySelector('.carousel-cylinder');
-        const cardWidth = 380;
-        const numCategories = categories.length;
-        // apothem = cardWidth / (2 * tan(π/numCards))
-        const apothem = cardWidth / (2 * Math.tan(Math.PI / numCategories));
-        const radius = Math.round(apothem) + 40; // Breathe room
-
-        categories.forEach((cat, i) => {
-            const card = document.createElement('div');
-            card.className = 'doppel-card';
-            
-            const theta = (360 / numCategories) * i;
-            card.style.transform = `rotateY(${theta}deg) translateZ(${radius}px)`;
-            
-            card.innerHTML = `
-                <div class="doppel-inner">
-                    <h2 class="card-title">${cat.title}</h2>
-                    <div class="skill-count">${cat.count}</div>
-                    
-                    <div class="btn-in-btn">
-                        <span class="btn-text">EXPLORE</span>
-                        <div class="btn-circle">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            `;
-            cylinder.appendChild(card);
-        });
-
-        // 4.1 Master Rotation Timeline
-        const masterTl = gsap.timeline({ repeat: -1, paused: true });
-        masterTl.to('.carousel-stage', {
-            rotationY: -360,
-            duration: 30,
-            ease: "none"
-        });
-
-        // 4.2 Scroll-Pinned Hero
-        gsap.set('.carousel-container', { opacity: 0, scale: 0.8, y: 100 });
-        
-        // Split hero title by words for scrubbing reveal
-        const heroTitle = document.querySelector('.hero-title');
-        const words = heroTitle.innerText.split(' ');
-        heroTitle.innerHTML = '';
-        words.forEach(word => {
-            const span = document.createElement('span');
-            span.style.opacity = 0.1;
-            span.style.display = 'inline-block';
-            span.style.marginRight = '0.2em';
-            span.innerText = word;
-            heroTitle.appendChild(span);
-        });
-
-        const heroWords = document.querySelectorAll('.hero-title span');
-
-        ScrollTrigger.create({
-            trigger: "#layer-3-carousel",
-            start: "top top",
-            end: "+=2000", // Scroll length
-            pin: true,
-            scrub: 1,
-            animation: gsap.timeline()
-                .to(heroWords, { opacity: 1, stagger: 0.1, duration: 1 })
-                .to('.hero-subtitle', { opacity: 1, duration: 0.5 }, "-=0.5")
-                .to({}, { duration: 0.5 }) // hold
-                .to('.hero-section', { opacity: 0, scale: 1.1, duration: 1 })
-                .to('.carousel-container', { 
-                    opacity: 1, 
-                    scale: 1, 
-                    y: 0, 
-                    duration: 1.5, 
-                    ease: "power3.out",
-                    onComplete: () => masterTl.play(),
-                    onReverseComplete: () => masterTl.pause()
-                }, "-=0.5")
-        });
-
-        // 4.3 Hover and Click Tweens
-        const cardElements = document.querySelectorAll('.doppel-card');
-        let activeCard = null;
-
-        cardElements.forEach(card => {
-            // Hover: Bullet Time
-            card.addEventListener('mouseenter', () => {
-                if (activeCard) return;
-                gsap.to(masterTl, { timeScale: 0.05, duration: 0.2, ease: "power2.out" });
-                gsap.to(card, { boxShadow: "0 0 40px rgba(0,255,255,0.4)", duration: 0.2 });
-                gsap.to(cardElements, { 
-                    opacity: (i, t) => t === card ? 1 : 0.3,
-                    filter: (i, t) => t === card ? "blur(0px)" : "blur(2px)",
-                    duration: 0.2 
-                });
-            });
-
-            card.addEventListener('mouseleave', () => {
-                if (activeCard) return;
-                gsap.to(masterTl, { timeScale: 1, duration: 0.4, ease: "power2.inOut" });
-                gsap.to(card, { boxShadow: "0 0 40px rgba(0,255,255,0.1)", duration: 0.4 });
-                gsap.to(cardElements, { opacity: 1, filter: "blur(0px)", duration: 0.4 });
-            });
-
-            // Click: Focus Mode
-            card.addEventListener('click', () => {
-                if (activeCard === card) return; // Already active
-
-                activeCard = card;
-                gsap.to(masterTl, { timeScale: 0, duration: 0.3 });
-                
-                // Rotate stage to bring card to front
-                const cardTransform = card.style.transform;
-                const match = cardTransform.match(/rotateY\(([\d.]+)deg\)/);
-                if (match) {
-                    const angle = parseFloat(match[1]);
-                    gsap.to('.carousel-stage', {
-                        rotationY: -angle,
-                        duration: 0.6,
-                        ease: "expo.out"
-                    });
-                }
-
-                // Expand card (we scale it up)
-                gsap.to(card, {
-                    scale: 2.1,
-                    zIndex: 100,
-                    duration: 0.6,
-                    ease: "expo.out",
-                    overwrite: "auto"
-                });
-
-                // Dim others further
-                gsap.to(cardElements, { 
-                    opacity: (i, t) => t === card ? 1 : 0.05,
-                    filter: (i, t) => t === card ? "blur(0px)" : "blur(8px)",
-                    duration: 0.6 
-                });
-                
-                // Slow down background particles
-                window.particleSpeedMultiplier = 0.1;
-                
-                // Step 5 trigger:
-                document.dispatchEvent(new CustomEvent('cardExpanded', { detail: { card } }));
-            });
-        });
-
-        // 4.4 Draggable Spin (Custom inertia)
-        Draggable.create('.carousel-container', {
-            type: 'x',
-            trigger: '.carousel-container',
-            onDragStart: () => {
-                if (activeCard) return;
-                masterTl.pause();
-            },
-            onDrag: function() {
-                if (activeCard) return;
-                gsap.set('.carousel-stage', { rotationY: "+=" + (this.deltaX * 0.5) });
-            },
-            onDragEnd: function() {
-                if (activeCard) return;
-                gsap.to('.carousel-stage', {
-                    rotationY: "+=" + (this.deltaX * 5),
-                    duration: 1,
-                    ease: "power3.out",
-                    onComplete: () => {
-                        masterTl.play();
-                    }
-                });
-            }
-        });
-        
-        // Speed multiplier for particles
-        window.particleSpeedMultiplier = 1;
-
-        // Step 5: Expanded Card Interiors
-        const layer4 = document.getElementById('layer-4-expanded');
-        
-        const skillsData = {
-            "UI & Frontend": ["design-taste-frontend", "minimalist-ui", "high-end-visual-design", "frontend-design", "impeccable", "brandkit", "industrial-brutalist-ui", "redesign-existing-projects", "webpage", "web-components"],
-            "Animation & Motion": ["emil-design-eng", "gsap-core", "gsap-scrolltrigger", "gsap-timeline", "gsap-plugins", "gsap-utils", "gsap-performance", "motion-design", "review-animations", "graphic-overlays"],
-            "AI Image & Media": ["imagegen-frontend-web", "motion-graphics", "asset-fusion", "remotion-best-practices"],
-            "Data & Analysis": ["ml-best-practices", "notebook-guidance", "data-viz", "charts", "stat", "algorithmic-art"],
-            "Architecture": ["system-design", "api-gateway", "microservices", "event-sourcing", "db_backend_safety"],
-            "Cloud & Ops": ["kubernetes", "docker", "aws-cdk", "terraform"],
-            "Content & Copy": ["copywriting-taste", "editorial-guidelines", "seo-optimization"],
-            "QA & Review": ["test-driven-development", "accessibility-audit", "performance-profiling"]
-        };
-
-        document.addEventListener('cardExpanded', (e) => {
-            const card = e.detail.card;
-            const title = card.querySelector('.card-title').innerText;
-            const count = card.querySelector('.skill-count').innerText;
-            
-            const skills = skillsData[title] || ["Skill 1", "Skill 2", "Skill 3"];
-
-            let skillsHtml = '';
-            skills.forEach(skill => {
-                skillsHtml += `
-                    <li class="skill-item" data-anim="slide-in">
-                        <span class="skill-name">${skill}</span>
-                        <span class="skill-type">AGENT SKILL</span>
-                    </li>
-                `;
-            });
-
-            layer4.innerHTML = `
-                <div class="expanded-content">
-                    <div class="expanded-header">
-                        <div>
-                            <h2 class="expanded-title" data-anim="kinetic">${title}</h2>
-                            <div class="expanded-meta" data-anim="fade-in">${count}</div>
-                        </div>
-                        <button class="close-btn" aria-label="Close">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
-                    <ul class="skills-list">
-                        ${skillsHtml}
-                    </ul>
-                </div>
-            `;
-
-            const content = layer4.querySelector('.expanded-content');
-            const closeBtn = layer4.querySelector('.close-btn');
-
-            gsap.to(content, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.5,
-                ease: "expo.out",
-                onStart: () => {
-                    layer4.style.pointerEvents = 'auto';
-                    content.style.pointerEvents = 'auto';
-                }
-            });
-
-            // Kinetic Chars
-            const titleEl = layer4.querySelector('.expanded-title');
-            const chars = titleEl.innerText.split('');
-            titleEl.innerHTML = '';
-            chars.forEach(char => {
-                const span = document.createElement('span');
-                span.style.opacity = 0;
-                span.style.display = 'inline-block';
-                span.innerText = char === ' ' ? '\u00A0' : char;
-                titleEl.appendChild(span);
-            });
-
-            gsap.to(titleEl.querySelectorAll('span'), {
-                opacity: 1,
-                stagger: 0.04,
-                duration: 0.4,
-                delay: 0.2,
-                ease: "power2.out"
-            });
-
-            gsap.fromTo(layer4.querySelector('.expanded-meta'), 
-                { opacity: 0 }, 
-                { opacity: 1, duration: 0.4, delay: 0.4 }
-            );
-
-            gsap.to(layer4.querySelectorAll('.skill-item'), {
-                opacity: 1,
-                y: 0,
-                stagger: 0.05,
-                duration: 0.4,
-                delay: 0.3,
-                ease: "power2.out"
-            });
-
-            closeBtn.addEventListener('click', () => {
-                gsap.to(content, {
-                    opacity: 0,
-                    scale: 0.9,
-                    duration: 0.3, // Asymmetric timing
-                    ease: "power2.in",
-                    onComplete: () => {
-                        layer4.innerHTML = '';
-                        layer4.style.pointerEvents = 'none';
-                    }
-                });
-
-                gsap.to(activeCard, {
-                    scale: 1,
-                    zIndex: 10,
-                    duration: 0.4,
-                    ease: "expo.out"
-                });
-
-                gsap.to('.doppel-card', {
-                    opacity: 1,
-                    filter: "blur(0px)",
-                    duration: 0.4
-                });
-
-                masterTl.play();
-                window.particleSpeedMultiplier = 1;
-                activeCard = null;
-            });
-        });
-
-        // Step 6: Spotlight Borders & HUD Updates
-        cardElements.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        const hudCoords = document.querySelectorAll('.coord');
-        function updateHUD() {
-            if (!activeCard) {
-                const rotationY = gsap.getProperty('.carousel-stage', 'rotationY');
-                if (rotationY !== undefined) {
-                    const normalizedRot = (rotationY % 360).toFixed(2);
-                    hudCoords.forEach(coord => {
-                        coord.innerText = `X: 0.00 Y: ${normalizedRot} Z: ${radius.toFixed(2)}`;
-                    });
-                }
-            }
-            requestAnimationFrame(updateHUD);
-        }
-        requestAnimationFrame(updateHUD);
-
-        // Step 7 QA: Reduced Motion Support
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-            gsap.globalTimeline.timeScale(100); // Make GSAP animations effectively instant
-            particles.length = 0; // Disable particles
-            masterTl.pause(); // Stop continuous rotation
-        }
-
-    </script>
+  </main>
 </body>
 </html>

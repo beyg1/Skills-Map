@@ -27,8 +27,35 @@
     ]
   },
   {
+    "name": "brandkit",
+    "path": "/home/darth/.agents/skills/brandkit",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "building-native-ui",
     "path": "/home/darth/.agents/skills/building-native-ui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "claimable-postgres",
+    "path": "/home/darth/.agents/skills/claimable-postgres",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "cloudflare",
+    "path": "/home/darth/.agents/skills/cloudflare",
     "scope": "global",
     "agents": [
       "Cline",
@@ -54,6 +81,24 @@
     ]
   },
   {
+    "name": "design-taste-frontend",
+    "path": "/home/darth/.agents/skills/design-taste-frontend",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "design-taste-frontend-v1",
+    "path": "/home/darth/.agents/skills/design-taste-frontend-v1",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "dotlottie-web",
     "path": "/home/darth/.agents/skills/dotlottie-web",
     "scope": "global",
@@ -65,6 +110,15 @@
   {
     "name": "eas-update-insights",
     "path": "/home/darth/.agents/skills/eas-update-insights",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "emil-design-eng",
+    "path": "/home/darth/.agents/skills/emil-design-eng",
     "scope": "global",
     "agents": [
       "Cline",
@@ -135,7 +189,7 @@
     ]
   },
   {
-    "name": "Expo UI Jetpack Compose",
+    "name": "expo-ui-jetpack-compose",
     "path": "/home/darth/.agents/skills/expo-ui-jetpack-compose",
     "scope": "global",
     "agents": [
@@ -144,7 +198,7 @@
     ]
   },
   {
-    "name": "Expo UI SwiftUI",
+    "name": "expo-ui-swiftui",
     "path": "/home/darth/.agents/skills/expo-ui-swiftui",
     "scope": "global",
     "agents": [
@@ -155,6 +209,42 @@
   {
     "name": "frontend-design",
     "path": "/home/darth/.agents/skills/frontend-design",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "full-output-enforcement",
+    "path": "/home/darth/.agents/skills/full-output-enforcement",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "general-video",
+    "path": "/home/darth/.agents/skills/general-video",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "gpt-taste",
+    "path": "/home/darth/.agents/skills/gpt-taste",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "graphic-overlays",
+    "path": "/home/darth/.agents/skills/graphic-overlays",
     "scope": "global",
     "agents": [
       "Cline",
@@ -225,8 +315,107 @@
     ]
   },
   {
+    "name": "high-end-visual-design",
+    "path": "/home/darth/.agents/skills/high-end-visual-design",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "hyperframes",
+    "path": "/home/darth/.agents/skills/hyperframes",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "hyperframes-animation",
+    "path": "/home/darth/.agents/skills/hyperframes-animation",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "hyperframes-core",
+    "path": "/home/darth/.agents/skills/hyperframes-core",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "hyperframes-media",
+    "path": "/home/darth/.agents/skills/hyperframes-media",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "hyperframes-registry",
+    "path": "/home/darth/.agents/skills/hyperframes-registry",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "image-to-code",
+    "path": "/home/darth/.agents/skills/image-to-code",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "imagegen-frontend-mobile",
+    "path": "/home/darth/.agents/skills/imagegen-frontend-mobile",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "imagegen-frontend-web",
+    "path": "/home/darth/.agents/skills/imagegen-frontend-web",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "impeccable",
+    "path": "/home/darth/.agents/skills/impeccable",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "improve-codebase-architecture",
     "path": "/home/darth/.agents/skills/improve-codebase-architecture",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "industrial-brutalist-ui",
+    "path": "/home/darth/.agents/skills/industrial-brutalist-ui",
     "scope": "global",
     "agents": [
       "Cline",
@@ -252,6 +441,15 @@
     ]
   },
   {
+    "name": "minimalist-ui",
+    "path": "/home/darth/.agents/skills/minimalist-ui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "motion-design",
     "path": "/home/darth/.agents/skills/motion-design",
     "scope": "global",
@@ -261,8 +459,62 @@
     ]
   },
   {
+    "name": "motion-graphics",
+    "path": "/home/darth/.agents/skills/motion-graphics",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "native-data-fetching",
     "path": "/home/darth/.agents/skills/native-data-fetching",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "neon-postgres",
+    "path": "/home/darth/.agents/skills/neon-postgres",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "neon-postgres-egress-optimizer",
+    "path": "/home/darth/.agents/skills/neon-postgres-egress-optimizer",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "redesign-existing-projects",
+    "path": "/home/darth/.agents/skills/redesign-existing-projects",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "remotion-best-practices",
+    "path": "/home/darth/.agents/skills/remotion-best-practices",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "remotion-to-hyperframes",
+    "path": "/home/darth/.agents/skills/remotion-to-hyperframes",
     "scope": "global",
     "agents": [
       "Cline",
@@ -369,8 +621,35 @@
     ]
   },
   {
+    "name": "review-animations",
+    "path": "/home/darth/.agents/skills/review-animations",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "skill-creator",
     "path": "/home/darth/.agents/skills/skill-creator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "slideshow",
+    "path": "/home/darth/.agents/skills/slideshow",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "stitch-design-taste",
+    "path": "/home/darth/.agents/skills/stitch-design-taste",
     "scope": "global",
     "agents": [
       "Cline",
@@ -414,6 +693,294 @@
     ]
   },
   {
+    "name": "text-to-lottie",
+    "path": "/home/darth/.agents/skills/text-to-lottie",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-3d-generator",
+    "path": "/home/darth/.agents/skills/threejs-3d-generator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-aaa-graphics-builder",
+    "path": "/home/darth/.agents/skills/threejs-aaa-graphics-builder",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-atmosphere-aerial-perspective",
+    "path": "/home/darth/.agents/skills/threejs-atmosphere-aerial-perspective",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-audio-generator",
+    "path": "/home/darth/.agents/skills/threejs-audio-generator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-bloom",
+    "path": "/home/darth/.agents/skills/threejs-bloom",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-camera-direction",
+    "path": "/home/darth/.agents/skills/threejs-camera-direction",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-debug-profiler",
+    "path": "/home/darth/.agents/skills/threejs-debug-profiler",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-exposure-color-grading",
+    "path": "/home/darth/.agents/skills/threejs-exposure-color-grading",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-game-director",
+    "path": "/home/darth/.agents/skills/threejs-game-director",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-game-ui-designer",
+    "path": "/home/darth/.agents/skills/threejs-game-ui-designer",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-gameplay-systems",
+    "path": "/home/darth/.agents/skills/threejs-gameplay-systems",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-image-generator",
+    "path": "/home/darth/.agents/skills/threejs-image-generator",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-image-pipeline",
+    "path": "/home/darth/.agents/skills/threejs-image-pipeline",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-animation",
+    "path": "/home/darth/.agents/skills/threejs-procedural-animation",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-architecture",
+    "path": "/home/darth/.agents/skills/threejs-procedural-architecture",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-fields",
+    "path": "/home/darth/.agents/skills/threejs-procedural-fields",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-geometry",
+    "path": "/home/darth/.agents/skills/threejs-procedural-geometry",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-materials",
+    "path": "/home/darth/.agents/skills/threejs-procedural-materials",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-planets",
+    "path": "/home/darth/.agents/skills/threejs-procedural-planets",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-vegetation",
+    "path": "/home/darth/.agents/skills/threejs-procedural-vegetation",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-procedural-vfx",
+    "path": "/home/darth/.agents/skills/threejs-procedural-vfx",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-qa-release",
+    "path": "/home/darth/.agents/skills/threejs-qa-release",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-raymarched-space-effects",
+    "path": "/home/darth/.agents/skills/threejs-raymarched-space-effects",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-screen-space-ambient-occlusion",
+    "path": "/home/darth/.agents/skills/threejs-screen-space-ambient-occlusion",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-shadow-systems",
+    "path": "/home/darth/.agents/skills/threejs-shadow-systems",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-skill-router",
+    "path": "/home/darth/.agents/skills/threejs-skill-router",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-spectral-ocean",
+    "path": "/home/darth/.agents/skills/threejs-spectral-ocean",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-temporal-surfaces",
+    "path": "/home/darth/.agents/skills/threejs-temporal-surfaces",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-visual-validation",
+    "path": "/home/darth/.agents/skills/threejs-visual-validation",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-volumetric-clouds",
+    "path": "/home/darth/.agents/skills/threejs-volumetric-clouds",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "threejs-water-optics",
+    "path": "/home/darth/.agents/skills/threejs-water-optics",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "upgrading-expo",
     "path": "/home/darth/.agents/skills/upgrading-expo",
     "scope": "global",
@@ -425,6 +992,15 @@
   {
     "name": "use-dom",
     "path": "/home/darth/.agents/skills/use-dom",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "website-to-video",
+    "path": "/home/darth/.agents/skills/website-to-video",
     "scope": "global",
     "agents": [
       "Cline",

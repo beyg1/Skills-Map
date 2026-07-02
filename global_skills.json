@@ -18,6 +18,15 @@
     ]
   },
   {
+    "name": "animation-vocabulary",
+    "path": "/home/darth/.agents/skills/animation-vocabulary",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "app-screenshot-generator",
     "path": "/home/darth/.agents/skills/app-screenshot-generator",
     "scope": "global",
@@ -171,6 +180,15 @@
     ]
   },
   {
+    "name": "expo-examples",
+    "path": "/home/darth/.agents/skills/expo-examples",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "expo-module",
     "path": "/home/darth/.agents/skills/expo-module",
     "scope": "global",
@@ -180,8 +198,35 @@
     ]
   },
   {
+    "name": "expo-observe",
+    "path": "/home/darth/.agents/skills/expo-observe",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-skill-eval",
+    "path": "/home/darth/.agents/skills/expo-skill-eval",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "expo-tailwind-setup",
     "path": "/home/darth/.agents/skills/expo-tailwind-setup",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "expo-ui",
+    "path": "/home/darth/.agents/skills/expo-ui",
     "scope": "global",
     "agents": [
       "Cline",
@@ -200,6 +245,15 @@
   {
     "name": "expo-ui-swiftui",
     "path": "/home/darth/.agents/skills/expo-ui-swiftui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "find-skills",
+    "path": "/home/darth/.agents/skills/find-skills",
     "scope": "global",
     "agents": [
       "Cline",
@@ -236,15 +290,6 @@
   {
     "name": "gpt-taste",
     "path": "/home/darth/.agents/skills/gpt-taste",
-    "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
-  },
-  {
-    "name": "graphic-overlays",
-    "path": "/home/darth/.agents/skills/graphic-overlays",
     "scope": "global",
     "agents": [
       "Cline",
@@ -443,6 +488,15 @@
   {
     "name": "minimalist-ui",
     "path": "/home/darth/.agents/skills/minimalist-ui",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "mongodb-schema-design",
+    "path": "/home/darth/.agents/skills/mongodb-schema-design",
     "scope": "global",
     "agents": [
       "Cline",
@@ -819,6 +873,15 @@
     ]
   },
   {
+    "name": "threejs-precipitation-surfaces",
+    "path": "/home/darth/.agents/skills/threejs-precipitation-surfaces",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
     "name": "threejs-procedural-animation",
     "path": "/home/darth/.agents/skills/threejs-procedural-animation",
     "scope": "global",
@@ -992,6 +1055,15 @@
   {
     "name": "use-dom",
     "path": "/home/darth/.agents/skills/use-dom",
+    "scope": "global",
+    "agents": [
+      "Cline",
+      "Roo Code"
+    ]
+  },
+  {
+    "name": "web-to-native",
+    "path": "/home/darth/.agents/skills/web-to-native",
     "scope": "global",
     "agents": [
       "Cline",

@@ -3,1080 +3,1016 @@
     "name": "add-app-clip",
     "path": "/home/darth/.agents/skills/add-app-clip",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "algorithmic-art",
     "path": "/home/darth/.agents/skills/algorithmic-art",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "anthropics/skills",
+    "sourceUrl": "https://github.com/anthropics/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "animation-vocabulary",
     "path": "/home/darth/.agents/skills/animation-vocabulary",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "app-icon",
+    "path": "/home/darth/.agents/skills/app-icon",
+    "scope": "global",
+    "source": "code-with-beto/skills",
+    "sourceUrl": "https://github.com/code-with-beto/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "app-screenshot-generator",
     "path": "/home/darth/.agents/skills/app-screenshot-generator",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "beyg1/App-ScreenShots-Generator-Skill",
+    "sourceUrl": "https://github.com/beyg1/App-ScreenShots-Generator-Skill.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "apple-design",
+    "path": "/home/darth/.agents/skills/apple-design",
+    "scope": "global",
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "better-auth-best-practices",
+    "path": "/home/darth/.agents/skills/better-auth-best-practices",
+    "scope": "global",
+    "source": "better-auth/skills",
+    "sourceUrl": "https://github.com/better-auth/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "brandkit",
     "path": "/home/darth/.agents/skills/brandkit",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "building-native-ui",
     "path": "/home/darth/.agents/skills/building-native-ui",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "claimable-postgres",
     "path": "/home/darth/.agents/skills/claimable-postgres",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "neondatabase/agent-skills",
+    "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "cloudflare",
     "path": "/home/darth/.agents/skills/cloudflare",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "cloudflare/skills",
+    "sourceUrl": "https://github.com/cloudflare/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "create-auth",
+    "path": "/home/darth/.agents/skills/create-auth",
+    "scope": "global",
+    "source": "better-auth/skills",
+    "sourceUrl": "https://github.com/better-auth/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "create-revenuecat-project",
     "path": "/home/darth/.agents/skills/create-revenuecat-project",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "design-an-interface",
     "path": "/home/darth/.agents/skills/design-an-interface",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "mattpocock/skills",
+    "sourceUrl": "https://github.com/mattpocock/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "design-taste-frontend",
     "path": "/home/darth/.agents/skills/design-taste-frontend",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "design-taste-frontend-v1",
     "path": "/home/darth/.agents/skills/design-taste-frontend-v1",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "dotlottie-web",
     "path": "/home/darth/.agents/skills/dotlottie-web",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "LottieFiles/dotlottie-web",
+    "sourceUrl": "https://github.com/LottieFiles/dotlottie-web.git",
+    "sourceType": "github"
   },
   {
     "name": "eas-update-insights",
     "path": "/home/darth/.agents/skills/eas-update-insights",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "emil-design-eng",
     "path": "/home/darth/.agents/skills/emil-design-eng",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-api-routes",
     "path": "/home/darth/.agents/skills/expo-api-routes",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-brownfield",
     "path": "/home/darth/.agents/skills/expo-brownfield",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-cicd-workflows",
     "path": "/home/darth/.agents/skills/expo-cicd-workflows",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-deployment",
     "path": "/home/darth/.agents/skills/expo-deployment",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-dev-client",
     "path": "/home/darth/.agents/skills/expo-dev-client",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-examples",
     "path": "/home/darth/.agents/skills/expo-examples",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-module",
     "path": "/home/darth/.agents/skills/expo-module",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-observe",
     "path": "/home/darth/.agents/skills/expo-observe",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-skill-eval",
     "path": "/home/darth/.agents/skills/expo-skill-eval",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-tailwind-setup",
     "path": "/home/darth/.agents/skills/expo-tailwind-setup",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "expo-ui",
     "path": "/home/darth/.agents/skills/expo-ui",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
-    "name": "expo-ui-jetpack-compose",
-    "path": "/home/darth/.agents/skills/expo-ui-jetpack-compose",
+    "name": "find-animation-opportunities",
+    "path": "/home/darth/.agents/skills/find-animation-opportunities",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
-  },
-  {
-    "name": "expo-ui-swiftui",
-    "path": "/home/darth/.agents/skills/expo-ui-swiftui",
-    "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "find-skills",
     "path": "/home/darth/.agents/skills/find-skills",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "vercel-labs/skills",
+    "sourceUrl": "https://github.com/vercel-labs/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "frontend-design",
     "path": "/home/darth/.agents/skills/frontend-design",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "anthropics/skills",
+    "sourceUrl": "https://github.com/anthropics/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "full-output-enforcement",
     "path": "/home/darth/.agents/skills/full-output-enforcement",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "general-video",
     "path": "/home/darth/.agents/skills/general-video",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "gpt-taste",
     "path": "/home/darth/.agents/skills/gpt-taste",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-core",
     "path": "/home/darth/.agents/skills/gsap-core",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-performance",
     "path": "/home/darth/.agents/skills/gsap-performance",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-plugins",
     "path": "/home/darth/.agents/skills/gsap-plugins",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-react",
     "path": "/home/darth/.agents/skills/gsap-react",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-scrolltrigger",
     "path": "/home/darth/.agents/skills/gsap-scrolltrigger",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-timeline",
     "path": "/home/darth/.agents/skills/gsap-timeline",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "gsap-utils",
     "path": "/home/darth/.agents/skills/gsap-utils",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "greensock/gsap-skills",
+    "sourceUrl": "https://github.com/greensock/gsap-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "high-end-visual-design",
     "path": "/home/darth/.agents/skills/high-end-visual-design",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "hyperframes",
     "path": "/home/darth/.agents/skills/hyperframes",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "hyperframes-animation",
     "path": "/home/darth/.agents/skills/hyperframes-animation",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "hyperframes-core",
     "path": "/home/darth/.agents/skills/hyperframes-core",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
-  },
-  {
-    "name": "hyperframes-media",
-    "path": "/home/darth/.agents/skills/hyperframes-media",
-    "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "hyperframes-registry",
     "path": "/home/darth/.agents/skills/hyperframes-registry",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "image-to-code",
     "path": "/home/darth/.agents/skills/image-to-code",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "imagegen-frontend-mobile",
     "path": "/home/darth/.agents/skills/imagegen-frontend-mobile",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "imagegen-frontend-web",
     "path": "/home/darth/.agents/skills/imagegen-frontend-web",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "impeccable",
     "path": "/home/darth/.agents/skills/impeccable",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "pbakaus/impeccable",
+    "sourceUrl": "https://github.com/pbakaus/impeccable.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "improve-animations",
+    "path": "/home/darth/.agents/skills/improve-animations",
+    "scope": "global",
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "improve-codebase-architecture",
     "path": "/home/darth/.agents/skills/improve-codebase-architecture",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "mattpocock/skills",
+    "sourceUrl": "https://github.com/mattpocock/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "industrial-brutalist-ui",
     "path": "/home/darth/.agents/skills/industrial-brutalist-ui",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "integrate-revenuecat",
     "path": "/home/darth/.agents/skills/integrate-revenuecat",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "mcp-builder",
     "path": "/home/darth/.agents/skills/mcp-builder",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "anthropics/skills",
+    "sourceUrl": "https://github.com/anthropics/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "minimalist-ui",
     "path": "/home/darth/.agents/skills/minimalist-ui",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "mongodb-schema-design",
     "path": "/home/darth/.agents/skills/mongodb-schema-design",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "mongodb/agent-skills",
+    "sourceUrl": "https://github.com/mongodb/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "motion-design",
     "path": "/home/darth/.agents/skills/motion-design",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "LottieFiles/motion-design-skill",
+    "sourceUrl": "https://github.com/LottieFiles/motion-design-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "motion-graphics",
     "path": "/home/darth/.agents/skills/motion-graphics",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "native-data-fetching",
     "path": "/home/darth/.agents/skills/native-data-fetching",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "neon-postgres",
     "path": "/home/darth/.agents/skills/neon-postgres",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "neondatabase/agent-skills",
+    "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "neon-postgres-egress-optimizer",
     "path": "/home/darth/.agents/skills/neon-postgres-egress-optimizer",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "neondatabase/agent-skills",
+    "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "organization-best-practices",
+    "path": "/home/darth/.agents/skills/organization-best-practices",
+    "scope": "global",
+    "source": "better-auth/skills",
+    "sourceUrl": "https://github.com/better-auth/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "pick-ui-library",
+    "path": "/home/darth/.agents/skills/pick-ui-library",
+    "scope": "global",
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "play-policy-insights",
+    "path": "/home/darth/.agents/skills/play-policy-insights",
+    "scope": "global",
+    "source": "android/skills",
+    "sourceUrl": "https://github.com/android/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "prototype",
+    "path": "/home/darth/.agents/skills/prototype",
+    "scope": "global",
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "redesign-existing-projects",
     "path": "/home/darth/.agents/skills/redesign-existing-projects",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
-  },
-  {
-    "name": "remotion-best-practices",
-    "path": "/home/darth/.agents/skills/remotion-best-practices",
-    "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "remotion-to-hyperframes",
     "path": "/home/darth/.agents/skills/remotion-to-hyperframes",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat",
     "path": "/home/darth/.agents/skills/revenuecat",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-charts",
     "path": "/home/darth/.agents/skills/revenuecat-charts",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-customer-center",
     "path": "/home/darth/.agents/skills/revenuecat-customer-center",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-entitlements-gate",
     "path": "/home/darth/.agents/skills/revenuecat-entitlements-gate",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-identify-user",
     "path": "/home/darth/.agents/skills/revenuecat-identify-user",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-migrate",
     "path": "/home/darth/.agents/skills/revenuecat-migrate",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-paywall",
     "path": "/home/darth/.agents/skills/revenuecat-paywall",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-purchase-flow",
     "path": "/home/darth/.agents/skills/revenuecat-purchase-flow",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-status",
     "path": "/home/darth/.agents/skills/revenuecat-status",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-testing-setup",
     "path": "/home/darth/.agents/skills/revenuecat-testing-setup",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "revenuecat-troubleshoot",
     "path": "/home/darth/.agents/skills/revenuecat-troubleshoot",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "RevenueCat/ai-toolkit",
+    "sourceUrl": "https://github.com/RevenueCat/ai-toolkit.git",
+    "sourceType": "github"
   },
   {
     "name": "review-animations",
     "path": "/home/darth/.agents/skills/review-animations",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "emilkowalski/skills",
+    "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "skill-creator",
     "path": "/home/darth/.agents/skills/skill-creator",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "anthropics/skills",
+    "sourceUrl": "https://github.com/anthropics/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "slideshow",
     "path": "/home/darth/.agents/skills/slideshow",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "heygen-com/hyperframes",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes.git",
+    "sourceType": "github"
   },
   {
     "name": "stitch-design-taste",
     "path": "/home/darth/.agents/skills/stitch-design-taste",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "Leonxlnx/taste-skill",
+    "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+    "sourceType": "github"
   },
   {
     "name": "supabase",
     "path": "/home/darth/.agents/skills/supabase",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "supabase/agent-skills",
+    "sourceUrl": "https://github.com/supabase/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "supabase-postgres-best-practices",
     "path": "/home/darth/.agents/skills/supabase-postgres-best-practices",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "supabase/agent-skills",
+    "sourceUrl": "https://github.com/supabase/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "superwall",
     "path": "/home/darth/.agents/skills/superwall",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "superwall/skills",
+    "sourceUrl": "https://github.com/superwall/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "superwall-editor",
     "path": "/home/darth/.agents/skills/superwall-editor",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "superwall/skills",
+    "sourceUrl": "https://github.com/superwall/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "text-to-lottie",
     "path": "/home/darth/.agents/skills/text-to-lottie",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "diffusionstudio/lottie",
+    "sourceUrl": "https://github.com/diffusionstudio/lottie.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-3d-generator",
     "path": "/home/darth/.agents/skills/threejs-3d-generator",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-aaa-graphics-builder",
     "path": "/home/darth/.agents/skills/threejs-aaa-graphics-builder",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-atmosphere-aerial-perspective",
     "path": "/home/darth/.agents/skills/threejs-atmosphere-aerial-perspective",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-audio-generator",
     "path": "/home/darth/.agents/skills/threejs-audio-generator",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-bloom",
     "path": "/home/darth/.agents/skills/threejs-bloom",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-camera-direction",
     "path": "/home/darth/.agents/skills/threejs-camera-direction",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-debug-profiler",
     "path": "/home/darth/.agents/skills/threejs-debug-profiler",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-exposure-color-grading",
     "path": "/home/darth/.agents/skills/threejs-exposure-color-grading",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-game-director",
     "path": "/home/darth/.agents/skills/threejs-game-director",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-game-ui-designer",
     "path": "/home/darth/.agents/skills/threejs-game-ui-designer",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-gameplay-systems",
     "path": "/home/darth/.agents/skills/threejs-gameplay-systems",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-image-generator",
     "path": "/home/darth/.agents/skills/threejs-image-generator",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-image-pipeline",
     "path": "/home/darth/.agents/skills/threejs-image-pipeline",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-precipitation-surfaces",
     "path": "/home/darth/.agents/skills/threejs-precipitation-surfaces",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-animation",
     "path": "/home/darth/.agents/skills/threejs-procedural-animation",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-architecture",
     "path": "/home/darth/.agents/skills/threejs-procedural-architecture",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-fields",
     "path": "/home/darth/.agents/skills/threejs-procedural-fields",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-geometry",
     "path": "/home/darth/.agents/skills/threejs-procedural-geometry",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-materials",
     "path": "/home/darth/.agents/skills/threejs-procedural-materials",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-planets",
     "path": "/home/darth/.agents/skills/threejs-procedural-planets",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-vegetation",
     "path": "/home/darth/.agents/skills/threejs-procedural-vegetation",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-procedural-vfx",
     "path": "/home/darth/.agents/skills/threejs-procedural-vfx",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-qa-release",
     "path": "/home/darth/.agents/skills/threejs-qa-release",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "majidmanzarpour/threejs-game-skills",
+    "sourceUrl": "https://github.com/majidmanzarpour/threejs-game-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-raymarched-space-effects",
     "path": "/home/darth/.agents/skills/threejs-raymarched-space-effects",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-screen-space-ambient-occlusion",
     "path": "/home/darth/.agents/skills/threejs-screen-space-ambient-occlusion",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-shadow-systems",
     "path": "/home/darth/.agents/skills/threejs-shadow-systems",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-skill-router",
     "path": "/home/darth/.agents/skills/threejs-skill-router",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-spectral-ocean",
     "path": "/home/darth/.agents/skills/threejs-spectral-ocean",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-temporal-surfaces",
     "path": "/home/darth/.agents/skills/threejs-temporal-surfaces",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-visual-validation",
     "path": "/home/darth/.agents/skills/threejs-visual-validation",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-volumetric-clouds",
     "path": "/home/darth/.agents/skills/threejs-volumetric-clouds",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
   },
   {
     "name": "threejs-water-optics",
     "path": "/home/darth/.agents/skills/threejs-water-optics",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "two-factor-authentication-best-practices",
+    "path": "/home/darth/.agents/skills/two-factor-authentication-best-practices",
+    "scope": "global",
+    "source": "better-auth/skills",
+    "sourceUrl": "https://github.com/better-auth/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "upgrading-expo",
     "path": "/home/darth/.agents/skills/upgrading-expo",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   },
   {
     "name": "use-dom",
     "path": "/home/darth/.agents/skills/use-dom",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "vercel-react-view-transitions",
+    "path": "/home/darth/.agents/skills/vercel-react-view-transitions",
+    "scope": "global",
+    "source": "vercel-labs/agent-skills",
+    "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+    "sourceType": "github"
   },
   {
     "name": "web-to-native",
     "path": "/home/darth/.agents/skills/web-to-native",
     "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
-  },
-  {
-    "name": "website-to-video",
-    "path": "/home/darth/.agents/skills/website-to-video",
-    "scope": "global",
-    "agents": [
-      "Cline",
-      "Roo Code"
-    ]
+    "source": "expo/skills",
+    "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
   }
 ]

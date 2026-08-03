@@ -143,135 +143,131 @@
     ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
 
     @media (max-width: 768px) { .dashboard { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
-  </style>
+  
+    .skill-cmd {
+      display: block;
+      margin-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--accent-1);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      user-select: all;
+      font-family: var(--font-mono);
+      border: 1px solid rgba(0,255,255,0.2);
+    }
+    .skill-title {
+      font-weight: bold;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+    .modal .skill-badge {
+      text-align: left;
+      padding: 0.8rem;
+    }
+</style>
 </head>
 <body>
   <div class="scanner"></div>
   <header>
     <h1>Agent Capabilities Map</h1>
-    <div class="subtitle">System Initialization: 120 Core Protocols Loaded</div>
+    <div class="subtitle">System Initialization: 25 Skill Packages Loaded</div>
   </header>
 
   <main class="dashboard">
-
-    <div class="category-card cat-native" data-category="cat-native">
+    <div class="category-card cat-native" data-category="cat-native" style="--card-color: #61dafb;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>📱 Native & Expo</h2>
-        <span class="skill-count">17</span>
+        <span class="skill-count">1</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="add-app-clip">add-app-clip</div>
-        <div class="skill-badge" title="building-native-ui">building-native-ui</div>
-        <div class="skill-badge" title="expo-api-routes">expo-api-routes</div>
-        <div class="skill-badge" title="expo-brownfield">expo-brownfield</div>
-        <div class="skill-badge" title="expo-cicd-workflows">expo-cicd-workflows</div>
-        <div class="skill-badge" title="expo-deployment">expo-deployment</div>
-        <div class="skill-badge" title="expo-dev-client">expo-dev-client</div>
-        <div class="skill-badge more-badge">+10 more...</div>
+        <div class="skill-badge" title="expo/skills">Expo Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-motion" data-category="cat-motion">
+    <div class="category-card cat-motion" data-category="cat-motion" style="--card-color: #ff00ff;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>🎬 Motion & Anim</h2>
-        <span class="skill-count">24</span>
+        <span class="skill-count">5</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="algorithmic-art">algorithmic-art</div>
-        <div class="skill-badge" title="animation-vocabulary">animation-vocabulary</div>
-        <div class="skill-badge" title="dotlottie-web">dotlottie-web</div>
-        <div class="skill-badge" title="general-video">general-video</div>
-        <div class="skill-badge" title="gsap-core">gsap-core</div>
-        <div class="skill-badge" title="gsap-performance">gsap-performance</div>
-        <div class="skill-badge" title="gsap-plugins">gsap-plugins</div>
-        <div class="skill-badge more-badge">+17 more...</div>
+        <div class="skill-badge" title="LottieFiles/dotlottie-web">Lottiefiles Dotlottie Web Skills</div>
+        <div class="skill-badge" title="heygen-com/hyperframes">Heygen Com Hyperframes Skills</div>
+        <div class="skill-badge" title="greensock/gsap-skills">Greensock Gsap Skills</div>
+        <div class="skill-badge" title="LottieFiles/motion-design-skill">Lottiefiles Motion Design Skill</div>
+        <div class="skill-badge" title="diffusionstudio/lottie">Diffusionstudio Lottie Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-monetization" data-category="cat-monetization">
+    <div class="category-card cat-monetization" data-category="cat-monetization" style="--card-color: #00ffaa;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>💰 Monetization</h2>
-        <span class="skill-count">15</span>
+        <span class="skill-count">2</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="create-revenuecat-project">create-revenuecat-project</div>
-        <div class="skill-badge" title="integrate-revenuecat">integrate-revenuecat</div>
-        <div class="skill-badge" title="revenuecat">revenuecat</div>
-        <div class="skill-badge" title="revenuecat-charts">revenuecat-charts</div>
-        <div class="skill-badge" title="revenuecat-customer-center">revenuecat-customer-center</div>
-        <div class="skill-badge" title="revenuecat-entitlements-gate">revenuecat-entitlements-gate</div>
-        <div class="skill-badge" title="revenuecat-identify-user">revenuecat-identify-user</div>
-        <div class="skill-badge more-badge">+8 more...</div>
+        <div class="skill-badge" title="RevenueCat/ai-toolkit">Revenuecat Ai Toolkit</div>
+        <div class="skill-badge" title="superwall/skills">Superwall Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-game" data-category="cat-game">
+    <div class="category-card cat-game" data-category="cat-game" style="--card-color: #ff3366;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>🎮 Game Dev</h2>
-        <span class="skill-count">32</span>
+        <span class="skill-count">2</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="threejs-3d-generator">threejs-3d-generator</div>
-        <div class="skill-badge" title="threejs-aaa-graphics-builder">threejs-aaa-graphics-builder</div>
-        <div class="skill-badge" title="threejs-atmosphere-aerial-perspective">threejs-atmosphere-aerial-perspective</div>
-        <div class="skill-badge" title="threejs-audio-generator">threejs-audio-generator</div>
-        <div class="skill-badge" title="threejs-bloom">threejs-bloom</div>
-        <div class="skill-badge" title="threejs-camera-direction">threejs-camera-direction</div>
-        <div class="skill-badge" title="threejs-debug-profiler">threejs-debug-profiler</div>
-        <div class="skill-badge more-badge">+25 more...</div>
+        <div class="skill-badge" title="majidmanzarpour/threejs-game-skills">Majidmanzarpour Threejs Game Skills</div>
+        <div class="skill-badge" title="scottstts/Threejs-Awesome-Graphics-Agent-Skills">Scottstts Threejs Awesome Graphics Agent Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-db" data-category="cat-db">
+    <div class="category-card cat-db" data-category="cat-db" style="--card-color: #facc15;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>🗄️ Database & Infra</h2>
-        <span class="skill-count">7</span>
+        <span class="skill-count">4</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="claimable-postgres">claimable-postgres</div>
-        <div class="skill-badge" title="cloudflare">cloudflare</div>
-        <div class="skill-badge" title="mongodb-schema-design">mongodb-schema-design</div>
-        <div class="skill-badge" title="neon-postgres">neon-postgres</div>
-        <div class="skill-badge" title="neon-postgres-egress-optimizer">neon-postgres-egress-optimizer</div>
-        <div class="skill-badge" title="supabase">supabase</div>
-        <div class="skill-badge" title="supabase-postgres-best-practices">supabase-postgres-best-practices</div>
+        <div class="skill-badge" title="neondatabase/agent-skills">Neondatabase Agent Skills</div>
+        <div class="skill-badge" title="cloudflare/skills">Cloudflare Skills</div>
+        <div class="skill-badge" title="mongodb/agent-skills">Mongodb Agent Skills</div>
+        <div class="skill-badge" title="supabase/agent-skills">Supabase Agent Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-frontend" data-category="cat-frontend">
+    <div class="category-card cat-frontend" data-category="cat-frontend" style="--card-color: #a855f7;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>🎨 Frontend & Web</h2>
-        <span class="skill-count">17</span>
+        <span class="skill-count">4</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="app-screenshot-generator">app-screenshot-generator</div>
-        <div class="skill-badge" title="brandkit">brandkit</div>
-        <div class="skill-badge" title="design-an-interface">design-an-interface</div>
-        <div class="skill-badge" title="design-taste-frontend">design-taste-frontend</div>
-        <div class="skill-badge" title="design-taste-frontend-v1">design-taste-frontend-v1</div>
-        <div class="skill-badge" title="eas-update-insights">eas-update-insights</div>
-        <div class="skill-badge" title="emil-design-eng">emil-design-eng</div>
-        <div class="skill-badge more-badge">+10 more...</div>
+        <div class="skill-badge" title="beyg1/App-ScreenShots-Generator-Skill">Beyg1 App Screenshots Generator Skill</div>
+        <div class="skill-badge" title="Leonxlnx/taste-skill">Leonxlnx Taste Skill</div>
+        <div class="skill-badge" title="mattpocock/skills">Mattpocock Skills</div>
+        <div class="skill-badge" title="pbakaus/impeccable">Pbakaus Impeccable Skills</div>
       </div>
     </div>
-
-    <div class="category-card cat-diag" data-category="cat-diag">
+    <div class="category-card cat-diag" data-category="cat-diag" style="--card-color: #fb923c;">
       <div class="category-header">
         <h2 class="category-title"><span class="status-dot"></span>🛠️ Diagnostics</h2>
-        <span class="skill-count">8</span>
+        <span class="skill-count">2</span>
       </div>
       <div class="skills-grid">
-        <div class="skill-badge" title="expo-observe">expo-observe</div>
-        <div class="skill-badge" title="expo-skill-eval">expo-skill-eval</div>
-        <div class="skill-badge" title="find-skills">find-skills</div>
-        <div class="skill-badge" title="full-output-enforcement">full-output-enforcement</div>
-        <div class="skill-badge" title="gpt-taste">gpt-taste</div>
-        <div class="skill-badge" title="improve-codebase-architecture">improve-codebase-architecture</div>
-        <div class="skill-badge" title="mcp-builder">mcp-builder</div>
-        <div class="skill-badge" title="skill-creator">skill-creator</div>
+        <div class="skill-badge" title="anthropics/skills">Anthropics Skills</div>
+        <div class="skill-badge" title="vercel-labs/skills">Vercel Labs Skills</div>
       </div>
     </div>
-  </main>
+    <div class="category-card cat-uncategorized" data-category="cat-uncategorized" style="--card-color: #aaaaaa;">
+      <div class="category-header">
+        <h2 class="category-title"><span class="status-dot"></span>🆕 New Skills</h2>
+        <span class="skill-count">5</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-badge" title="emilkowalski/skills">Emilkowalski Skills</div>
+        <div class="skill-badge" title="code-with-beto/skills">Code With Beto Skills</div>
+        <div class="skill-badge" title="better-auth/skills">Better Auth Skills</div>
+        <div class="skill-badge" title="android/skills">Android Skills</div>
+        <div class="skill-badge" title="vercel-labs/agent-skills">Vercel Labs Agent Skills</div>
+      </div>
+    </div>
+</main>
 
   <!-- Modal Overlay -->
   <div id="skillsModal" class="modal">
@@ -287,7 +283,7 @@
   </div>
 
   <script>
-    const categoriesData = {"cat-native": {"title": "\ud83d\udcf1 Native & Expo", "color": "#61dafb", "skills": ["add-app-clip", "building-native-ui", "expo-api-routes", "expo-brownfield", "expo-cicd-workflows", "expo-deployment", "expo-dev-client", "expo-examples", "expo-module", "expo-tailwind-setup", "expo-ui", "expo-ui-jetpack-compose", "expo-ui-swiftui", "native-data-fetching", "upgrading-expo", "use-dom", "web-to-native"]}, "cat-motion": {"title": "\ud83c\udfac Motion & Anim", "color": "#ff00ff", "skills": ["algorithmic-art", "animation-vocabulary", "dotlottie-web", "general-video", "gsap-core", "gsap-performance", "gsap-plugins", "gsap-react", "gsap-scrolltrigger", "gsap-timeline", "gsap-utils", "hyperframes", "hyperframes-animation", "hyperframes-core", "hyperframes-media", "hyperframes-registry", "motion-design", "motion-graphics", "remotion-best-practices", "remotion-to-hyperframes", "review-animations", "slideshow", "text-to-lottie", "website-to-video"]}, "cat-monetization": {"title": "\ud83d\udcb0 Monetization", "color": "#00ffaa", "skills": ["create-revenuecat-project", "integrate-revenuecat", "revenuecat", "revenuecat-charts", "revenuecat-customer-center", "revenuecat-entitlements-gate", "revenuecat-identify-user", "revenuecat-migrate", "revenuecat-paywall", "revenuecat-purchase-flow", "revenuecat-status", "revenuecat-testing-setup", "revenuecat-troubleshoot", "superwall", "superwall-editor"]}, "cat-game": {"title": "\ud83c\udfae Game Dev", "color": "#ff3366", "skills": ["threejs-3d-generator", "threejs-aaa-graphics-builder", "threejs-atmosphere-aerial-perspective", "threejs-audio-generator", "threejs-bloom", "threejs-camera-direction", "threejs-debug-profiler", "threejs-exposure-color-grading", "threejs-game-director", "threejs-game-ui-designer", "threejs-gameplay-systems", "threejs-image-generator", "threejs-image-pipeline", "threejs-precipitation-surfaces", "threejs-procedural-animation", "threejs-procedural-architecture", "threejs-procedural-fields", "threejs-procedural-geometry", "threejs-procedural-materials", "threejs-procedural-planets", "threejs-procedural-vegetation", "threejs-procedural-vfx", "threejs-qa-release", "threejs-raymarched-space-effects", "threejs-screen-space-ambient-occlusion", "threejs-shadow-systems", "threejs-skill-router", "threejs-spectral-ocean", "threejs-temporal-surfaces", "threejs-visual-validation", "threejs-volumetric-clouds", "threejs-water-optics"]}, "cat-db": {"title": "\ud83d\uddc4\ufe0f Database & Infra", "color": "#facc15", "skills": ["claimable-postgres", "cloudflare", "mongodb-schema-design", "neon-postgres", "neon-postgres-egress-optimizer", "supabase", "supabase-postgres-best-practices"]}, "cat-frontend": {"title": "\ud83c\udfa8 Frontend & Web", "color": "#a855f7", "skills": ["app-screenshot-generator", "brandkit", "design-an-interface", "design-taste-frontend", "design-taste-frontend-v1", "eas-update-insights", "emil-design-eng", "frontend-design", "high-end-visual-design", "image-to-code", "imagegen-frontend-mobile", "imagegen-frontend-web", "impeccable", "industrial-brutalist-ui", "minimalist-ui", "redesign-existing-projects", "stitch-design-taste"]}, "cat-diag": {"title": "\ud83d\udee0\ufe0f Diagnostics", "color": "#fb923c", "skills": ["expo-observe", "expo-skill-eval", "find-skills", "full-output-enforcement", "gpt-taste", "improve-codebase-architecture", "mcp-builder", "skill-creator"]}};
+    const categoriesData = {"cat-native": {"title": "\ud83d\udcf1 Native & Expo", "color": "#61dafb", "skills": [{"id": "expo/skills", "title": "Expo Skills", "install_cmd": "npx skills@latest add expo/skills --skill '*' -g"}]}, "cat-motion": {"title": "\ud83c\udfac Motion & Anim", "color": "#ff00ff", "skills": [{"id": "LottieFiles/dotlottie-web", "title": "Lottiefiles Dotlottie Web Skills", "install_cmd": "npx skills@latest add LottieFiles/dotlottie-web --skill '*' -g"}, {"id": "heygen-com/hyperframes", "title": "Heygen Com Hyperframes Skills", "install_cmd": "npx skills@latest add heygen-com/hyperframes --skill '*' -g"}, {"id": "greensock/gsap-skills", "title": "Greensock Gsap Skills", "install_cmd": "npx skills@latest add greensock/gsap-skills --skill '*' -g"}, {"id": "LottieFiles/motion-design-skill", "title": "Lottiefiles Motion Design Skill", "install_cmd": "npx skills@latest add LottieFiles/motion-design-skill --skill '*' -g"}, {"id": "diffusionstudio/lottie", "title": "Diffusionstudio Lottie Skills", "install_cmd": "npx skills@latest add diffusionstudio/lottie --skill '*' -g"}]}, "cat-monetization": {"title": "\ud83d\udcb0 Monetization", "color": "#00ffaa", "skills": [{"id": "RevenueCat/ai-toolkit", "title": "Revenuecat Ai Toolkit", "install_cmd": "npx skills@latest add RevenueCat/ai-toolkit --skill '*' -g"}, {"id": "superwall/skills", "title": "Superwall Skills", "install_cmd": "npx skills@latest add superwall/skills --skill '*' -g"}]}, "cat-game": {"title": "\ud83c\udfae Game Dev", "color": "#ff3366", "skills": [{"id": "majidmanzarpour/threejs-game-skills", "title": "Majidmanzarpour Threejs Game Skills", "install_cmd": "npx skills@latest add majidmanzarpour/threejs-game-skills --skill '*' -g"}, {"id": "scottstts/Threejs-Awesome-Graphics-Agent-Skills", "title": "Scottstts Threejs Awesome Graphics Agent Skills", "install_cmd": "npx skills@latest add scottstts/Threejs-Awesome-Graphics-Agent-Skills --skill '*' -g"}]}, "cat-db": {"title": "\ud83d\uddc4\ufe0f Database & Infra", "color": "#facc15", "skills": [{"id": "neondatabase/agent-skills", "title": "Neondatabase Agent Skills", "install_cmd": "npx skills@latest add neondatabase/agent-skills --skill '*' -g"}, {"id": "cloudflare/skills", "title": "Cloudflare Skills", "install_cmd": "npx skills@latest add cloudflare/skills --skill '*' -g"}, {"id": "mongodb/agent-skills", "title": "Mongodb Agent Skills", "install_cmd": "npx skills@latest add mongodb/agent-skills --skill '*' -g"}, {"id": "supabase/agent-skills", "title": "Supabase Agent Skills", "install_cmd": "npx skills@latest add supabase/agent-skills --skill '*' -g"}]}, "cat-frontend": {"title": "\ud83c\udfa8 Frontend & Web", "color": "#a855f7", "skills": [{"id": "beyg1/App-ScreenShots-Generator-Skill", "title": "Beyg1 App Screenshots Generator Skill", "install_cmd": "npx skills@latest add beyg1/App-ScreenShots-Generator-Skill --skill '*' -g"}, {"id": "Leonxlnx/taste-skill", "title": "Leonxlnx Taste Skill", "install_cmd": "npx skills@latest add Leonxlnx/taste-skill --skill '*' -g"}, {"id": "mattpocock/skills", "title": "Mattpocock Skills", "install_cmd": "npx skills@latest add mattpocock/skills --skill '*' -g"}, {"id": "pbakaus/impeccable", "title": "Pbakaus Impeccable Skills", "install_cmd": "npx skills@latest add pbakaus/impeccable --skill '*' -g"}]}, "cat-diag": {"title": "\ud83d\udee0\ufe0f Diagnostics", "color": "#fb923c", "skills": [{"id": "anthropics/skills", "title": "Anthropics Skills", "install_cmd": "npx skills@latest add anthropics/skills --skill '*' -g"}, {"id": "vercel-labs/skills", "title": "Vercel Labs Skills", "install_cmd": "npx skills@latest add vercel-labs/skills --skill '*' -g"}]}, "cat-uncategorized": {"title": "\ud83c\udd95 New Skills", "color": "#aaaaaa", "skills": [{"id": "emilkowalski/skills", "title": "Emilkowalski Skills", "install_cmd": "npx skills@latest add emilkowalski/skills --skill '*' -g"}, {"id": "code-with-beto/skills", "title": "Code With Beto Skills", "install_cmd": "npx skills@latest add code-with-beto/skills --skill '*' -g"}, {"id": "better-auth/skills", "title": "Better Auth Skills", "install_cmd": "npx skills@latest add better-auth/skills --skill '*' -g"}, {"id": "android/skills", "title": "Android Skills", "install_cmd": "npx skills@latest add android/skills --skill '*' -g"}, {"id": "vercel-labs/agent-skills", "title": "Vercel Labs Agent Skills", "install_cmd": "npx skills@latest add vercel-labs/agent-skills --skill '*' -g"}]}};
     
     const modal = document.getElementById('skillsModal');
     const closeBtn = document.querySelector('.close-btn');
@@ -306,8 +302,19 @@
         catData.skills.forEach(skill => {
           const badge = document.createElement('div');
           badge.className = 'skill-badge';
-          badge.textContent = skill;
-          badge.title = skill;
+          
+          const titleEl = document.createElement('div');
+          titleEl.className = 'skill-title';
+          titleEl.textContent = skill.title;
+          
+          const cmdEl = document.createElement('code');
+          cmdEl.className = 'skill-cmd';
+          cmdEl.textContent = skill.install_cmd;
+          
+          badge.appendChild(titleEl);
+          badge.appendChild(cmdEl);
+          badge.title = skill.id;
+          
           modalSkills.appendChild(badge);
         });
         

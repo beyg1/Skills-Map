@@ -772,19 +772,21 @@
       window.addEventListener('touchend', (e) => {
         if (e.target.closest('.dashboard')) {
           touchEndX = e.changedTouches[0].screenX;
-          const threshold = 40;
-          if (touchEndX < touchStartX - threshold) {
-            // Swiped left
-            if (activeIndex < cards.length - 1) {
-              activeIndex++;
-              updateCoverFlow();
+          const deltaX = touchStartX - touchEndX; // positive means swiped left (next card)
+          const absDelta = Math.abs(deltaX);
+          
+          if (absDelta > 40) {
+            // Determine how many cards to scroll based on swipe intensity (1 card per 80px)
+            let cardsToScroll = Math.max(1, Math.floor(absDelta / 80));
+            
+            if (deltaX > 0) {
+              // Swiped left
+              activeIndex = Math.min(cards.length - 1, activeIndex + cardsToScroll);
+            } else {
+              // Swiped right
+              activeIndex = Math.max(0, activeIndex - cardsToScroll);
             }
-          } else if (touchEndX > touchStartX + threshold) {
-            // Swiped right
-            if (activeIndex > 0) {
-              activeIndex--;
-              updateCoverFlow();
-            }
+            updateCoverFlow();
           }
         }
       }, { passive: true });

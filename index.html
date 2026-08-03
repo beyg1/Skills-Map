@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agent Capabilities Map</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
 
@@ -66,23 +67,61 @@
     h1 { font-family: var(--font-heading); font-size: 2.5rem; color: var(--accent-1); text-transform: uppercase; letter-spacing: 0.2em; text-shadow: 0 0 10px var(--accent-1), 0 0 20px var(--accent-1); margin-bottom: 0.5rem; }
     .subtitle { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-3); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
     
+    
+    
+    
+    
     .dashboard {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem; max-width: 1600px; margin: 0 auto;
+      width: 100%;
+      height: 75vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+      overflow: hidden;
+    }
+    .carousel-track {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .category-card {
-      background: var(--panel-bg); border: 1px solid var(--border-color);
-      border-radius: 8px; padding: 1.25rem; position: relative; overflow: hidden;
-      backdrop-filter: blur(10px); transition: all 0.3s ease;
-      animation: borderGlow 6s ease-in-out infinite;
-      display: flex; flex-direction: column;
-      height: 380px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: absolute;
+      width: 400px;
+      height: 550px;
+      max-height: 80vh;
+      overflow-y: auto;
+      transition: border-color 0.3s;
       cursor: pointer;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
-    .category-card:nth-child(odd) { animation-delay: 1s; }
-    .category-card:nth-child(even) { animation-delay: 3s; }
-    .category-card:nth-child(3n) { animation-delay: 2s; }
-    .category-card:hover { transform: translateY(-3px); box-shadow: 0 0 15px var(--card-color), inset 0 0 20px rgba(0, 0, 0, 0.7); }
+    .category-card::-webkit-scrollbar {
+      display: none;
+    }
+    .category-card:hover {
+      border-color: var(--card-color);
+      box-shadow: 0 10px 30px -10px var(--card-color);
+    }
+
+    
+    
+    
+    
+    
+
+
+
     
     .category-header {
       display: flex; justify-content: space-between; align-items: center;
@@ -249,88 +288,10 @@
   </header>
 
   <main class="dashboard">
-    <div class="category-card cat-native" data-category="cat-native" style="--card-color: #61dafb;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>📱 Native & Expo</h2>
-        <span class="skill-count">3</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="expo/skills">Expo Skills</div>
-        <div class="skill-badge" title="code-with-beto/skills">Code With Beto Skills</div>
-        <div class="skill-badge" title="android/skills">Android Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-motion" data-category="cat-motion" style="--card-color: #ff00ff;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>🎬 Motion & Anim</h2>
-        <span class="skill-count">5</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="LottieFiles/dotlottie-web">Lottiefiles Dotlottie Web Skills</div>
-        <div class="skill-badge" title="heygen-com/hyperframes">Heygen Com Hyperframes Skills</div>
-        <div class="skill-badge" title="greensock/gsap-skills">Greensock Gsap Skills</div>
-        <div class="skill-badge" title="LottieFiles/motion-design-skill">Lottiefiles Motion Design Skill</div>
-        <div class="skill-badge" title="diffusionstudio/lottie">Diffusionstudio Lottie Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-monetization" data-category="cat-monetization" style="--card-color: #00ffaa;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>💰 Monetization</h2>
-        <span class="skill-count">2</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="RevenueCat/ai-toolkit">Revenuecat Ai Toolkit</div>
-        <div class="skill-badge" title="superwall/skills">Superwall Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-game" data-category="cat-game" style="--card-color: #ff3366;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>🎮 Game Dev</h2>
-        <span class="skill-count">2</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="majidmanzarpour/threejs-game-skills">Majidmanzarpour Threejs Game Skills</div>
-        <div class="skill-badge" title="scottstts/Threejs-Awesome-Graphics-Agent-Skills">Scottstts Threejs Awesome Graphics Agent Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-db" data-category="cat-db" style="--card-color: #facc15;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>🗄️ Database & Infra</h2>
-        <span class="skill-count">5</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="neondatabase/agent-skills">Neondatabase Agent Skills</div>
-        <div class="skill-badge" title="cloudflare/skills">Cloudflare Skills</div>
-        <div class="skill-badge" title="mongodb/agent-skills">Mongodb Agent Skills</div>
-        <div class="skill-badge" title="supabase/agent-skills">Supabase Agent Skills</div>
-        <div class="skill-badge" title="better-auth/skills">Better Auth Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-frontend" data-category="cat-frontend" style="--card-color: #a855f7;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>🎨 Frontend & Web</h2>
-        <span class="skill-count">7</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="beyg1/App-ScreenShots-Generator-Skill">Beyg1 App Screenshots Generator Skill</div>
-        <div class="skill-badge" title="Leonxlnx/taste-skill">Leonxlnx Taste Skill</div>
-        <div class="skill-badge" title="mattpocock/skills">Mattpocock Skills</div>
-        <div class="skill-badge" title="pbakaus/impeccable">Pbakaus Impeccable Skills</div>
-        <div class="skill-badge" title="anthropics/skills">Anthropics Skills</div>
-        <div class="skill-badge" title="emilkowalski/skills">Emilkowalski Skills</div>
-        <div class="skill-badge" title="vercel-labs/agent-skills">Vercel Labs Agent Skills</div>
-      </div>
-    </div>
-    <div class="category-card cat-diag" data-category="cat-diag" style="--card-color: #fb923c;">
-      <div class="category-header">
-        <h2 class="category-title"><span class="status-dot"></span>🛠️ Diagnostics</h2>
-        <span class="skill-count">1</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-badge" title="vercel-labs/skills">Vercel Labs Skills</div>
-      </div>
-    </div>
-</main>
+    <div class="carousel-track" id="carouselTrack"></div>
+    
+    
+  </main>
 
   <!-- Modal Overlay -->
   <div id="skillsModal" class="modal">
@@ -449,30 +410,160 @@
     }
 
     // Main page events
-    document.querySelectorAll('.category-card').forEach(card => {
-      // Handle click on the whole category card
-      card.addEventListener('click', (e) => {
-        // If clicking on a specific package badge inside the card
-        const badgeEl = e.target.closest('.skill-badge');
-        const catId = card.getAttribute('data-category');
-        const catData = categoriesData[catId];
+    
+    
+    
+    
+    const carouselTrack = document.getElementById('carouselTrack');
+    
+    let activeIndex = 0;
+    let cards = [];
+    let scrollAccumulator = 0;
 
-        if (badgeEl && !badgeEl.classList.contains('more-badge')) {
-          const pkgId = badgeEl.getAttribute('title');
-          const pkgData = catData.skills.find(s => s.id === pkgId);
-          if (pkgData) {
-            if (pkgData.sub_skills && pkgData.sub_skills.length > 0) {
-               openSubSkillsModal(pkgData, catData.color);
-            } else {
-               // Fallback if no subskills (shouldn't happen since we added 1-item lists)
-               openCategoryModal(catId);
-            }
+    // Function to build a single card HTML string
+    function createCardHTML(catId, catData) {
+      const count = catData.skills.length;
+      if (count === 0) return '';
+      
+      const visibleSkills = catData.skills.slice(0, 7);
+      const moreCount = count - 7;
+      
+      let html = `<div class="category-card ${catId}" data-category="${catId}" style="--card-color: ${catData.color};">
+        <div class="category-header">
+          <h2 class="category-title"><span class="status-dot"></span>${catData.title}</h2>
+          <span class="skill-count">${count}</span>
+        </div>
+        <div class="skills-grid">`;
+        
+      visibleSkills.forEach(s => {
+        html += `<div class="skill-badge" title="${s.id}">${s.title}</div>`;
+      });
+      
+      if (moreCount > 0) {
+        html += `<div class="skill-badge more-badge">+${moreCount} more...</div>`;
+      }
+      
+      html += `</div></div>`;
+      return html;
+    }
+
+    function updateCoverFlow() {
+      cards.forEach((card, i) => {
+        const offset = i - activeIndex;
+        
+        let x = offset * 420; // Adjusted distance for the 400px wide cards
+        let scale = offset === 0 ? 1 : 0.85;
+        let opacity = offset === 0 ? 1 : (Math.abs(offset) > 2 ? 0 : 0.5);
+        let rotationY = offset === 0 ? 0 : (offset > 0 ? -40 : 40); // Tilted INWARDS towards the center
+        let zIndex = 50 - Math.abs(offset);
+
+        gsap.to(card, {
+          x: x,
+          scale: scale,
+          opacity: opacity,
+          rotationY: rotationY,
+          zIndex: zIndex,
+          duration: 0.6,
+          ease: "power3.out",
+          overwrite: "auto"
+        });
+      });
+    }
+
+    function initCarousel() {
+      let cardsHTML = '';
+      for (const [catId, catData] of Object.entries(categoriesData)) {
+        cardsHTML += createCardHTML(catId, catData);
+      }
+      
+      carouselTrack.innerHTML = cardsHTML;
+      cards = document.querySelectorAll('.category-card');
+      activeIndex = Math.floor(cards.length / 2); // Start in the middle
+
+      updateCoverFlow();
+
+      // Scroll support for cover flow
+      window.addEventListener('wheel', (e) => {
+        // Prevent default scrolling if hovering over the dashboard area to stop page from jumping
+        if (e.target.closest('.dashboard')) {
+            e.preventDefault();
+        }
+        
+        // Accumulate scroll delta
+        scrollAccumulator += (e.deltaY + e.deltaX);
+        
+        // Threshold to trigger next/prev card
+        if (scrollAccumulator > 80) {
+          if (activeIndex < cards.length - 1) {
+            activeIndex++;
+            updateCoverFlow();
           }
-        } else {
-          openCategoryModal(catId);
+          scrollAccumulator = 0;
+        } else if (scrollAccumulator < -80) {
+          if (activeIndex > 0) {
+            activeIndex--;
+            updateCoverFlow();
+          }
+          scrollAccumulator = 0;
+        }
+      }, { passive: false });
+
+      // Keyboard support
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && activeIndex > 0) {
+          activeIndex--;
+          updateCoverFlow();
+        } else if (e.key === 'ArrowRight' && activeIndex < cards.length - 1) {
+          activeIndex++;
+          updateCoverFlow();
         }
       });
-    });
+
+      // Allow clicking side cards to navigate to them
+      cards.forEach((card, i) => {
+        card.addEventListener('click', (e) => {
+          if (i !== activeIndex) {
+            e.stopPropagation(); // prevent opening modal
+            activeIndex = i;
+            updateCoverFlow();
+          }
+        });
+      });
+
+      // Bind events to dynamically created cards
+      bindCardEvents();
+    }
+
+    function bindCardEvents() {
+
+
+
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          const badgeEl = e.target.closest('.skill-badge');
+          const catId = card.getAttribute('data-category');
+          const catData = categoriesData[catId];
+
+          if (badgeEl && !badgeEl.classList.contains('more-badge')) {
+            const pkgId = badgeEl.getAttribute('title');
+            const pkgData = catData.skills.find(s => s.id === pkgId);
+            if (pkgData) {
+              if (pkgData.sub_skills && pkgData.sub_skills.length > 0) {
+                 openSubSkillsModal(pkgData, catData.color);
+              } else {
+                 openCategoryModal(catId);
+              }
+            }
+          } else {
+            openCategoryModal(catId);
+          }
+        });
+      });
+    }
+    
+    // Initialize Marquee on load
+    initCarousel();
+    
 
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';

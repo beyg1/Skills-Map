@@ -104,14 +104,6 @@
     "sourceType": "github"
   },
   {
-    "name": "design-an-interface",
-    "path": "/home/darth/.agents/skills/design-an-interface",
-    "scope": "global",
-    "source": "mattpocock/skills",
-    "sourceUrl": "https://github.com/mattpocock/skills.git",
-    "sourceType": "github"
-  },
-  {
     "name": "design-taste-frontend",
     "path": "/home/darth/.agents/skills/design-taste-frontend",
     "scope": "global",
@@ -818,6 +810,14 @@
   {
     "name": "threejs-image-pipeline",
     "path": "/home/darth/.agents/skills/threejs-image-pipeline",
+    "scope": "global",
+    "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
+    "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "threejs-parallax-occlusion-mapping",
+    "path": "/home/darth/.agents/skills/threejs-parallax-occlusion-mapping",
     "scope": "global",
     "source": "scottstts/Threejs-Awesome-Graphics-Agent-Skills",
     "sourceUrl": "https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills.git",

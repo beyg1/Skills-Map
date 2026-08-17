@@ -1,0 +1,126 @@
+[
+  {
+    "id": "blender",
+    "name": "Blender 3D Engine",
+    "category": "cat-mcp-design",
+    "category_title": "🎨 3D & Creative UI",
+    "color": "#ff3366",
+    "github_url": "https://github.com/ahujasid/blender-mcp",
+    "website_url": "https://blender-mcp.com",
+    "tool_count": 25,
+    "description": "Full Blender integration for 3D modeling, viewport capture, PolyHaven asset/texture downloads, Sketchfab 3D models, and Hyper3D / Hunyuan3D generative AI mesh creation.",
+    "capabilities": [
+      "3D Mesh & Scene Inspection",
+      "Python Script Execution",
+      "Viewport Screen Capture",
+      "PolyHaven Assets & HDRI",
+      "Sketchfab Model Downloads",
+      "Hyper3D / Rodin 3D Generation",
+      "Tencent Hunyuan3D Generation"
+    ]
+  },
+  {
+    "id": "mobbin",
+    "name": "Mobbin UI/UX Design",
+    "category": "cat-mcp-design",
+    "category_title": "🎨 3D & Creative UI",
+    "color": "#ff3366",
+    "github_url": "https://github.com/georgespencer/mcp-remote",
+    "website_url": "https://mobbin.com",
+    "tool_count": 3,
+    "description": "Direct access to Mobbin's design system database. Search thousands of real-world iOS, Android, and Web UI screenshots, interaction flows, and section teardowns.",
+    "capabilities": [
+      "Search Mobile & Web Screens",
+      "Search User Interaction Flows",
+      "Search UI Section Components",
+      "Design Teardowns & Inspiration"
+    ]
+  },
+  {
+    "id": "expo",
+    "name": "Expo Mobile Cloud",
+    "category": "cat-mcp-app",
+    "category_title": "🚀 App & Monetization",
+    "color": "#00ffaa",
+    "github_url": "https://github.com/expo/skills",
+    "website_url": "https://docs.expo.dev",
+    "tool_count": 24,
+    "description": "Official Expo cloud orchestration for React Native. Manage EAS builds, workflow runs, App Store & Play Store review responses, TestFlight crashes, and documentation.",
+    "capabilities": [
+      "EAS Build & Workflow Management",
+      "TestFlight Crashes & Feedback",
+      "Play Store Reviews & Responses",
+      "App Store Review Management",
+      "Official Expo Documentation Search"
+    ]
+  },
+  {
+    "id": "revenuecat",
+    "name": "RevenueCat In-App Purchases",
+    "category": "cat-mcp-app",
+    "category_title": "🚀 App & Monetization",
+    "color": "#00ffaa",
+    "github_url": "https://github.com/RevenueCat/ai-toolkit",
+    "website_url": "https://www.revenuecat.com/docs/tools/mcp",
+    "tool_count": 87,
+    "description": "Complete subscription and paywall infrastructure. Create entitlements, manage offerings, generate AI paywalls, run A/B pricing experiments, and query revenue analytics.",
+    "capabilities": [
+      "In-App Purchases & Subscriptions",
+      "AI Paywall Generation & Editing",
+      "A/B Testing & Pricing Experiments",
+      "Customer Center & Entitlements Gate",
+      "Real-Time Revenue Metrics & Charts"
+    ]
+  },
+  {
+    "id": "appreply-aso",
+    "name": "AppReply App Store Optimization (ASO)",
+    "category": "cat-mcp-app",
+    "category_title": "🚀 App & Monetization",
+    "color": "#00ffaa",
+    "github_url": "https://github.com/appreply-co/mcp-appstore",
+    "website_url": "https://appreply.io",
+    "tool_count": 11,
+    "description": "App Store & Play Store intelligence toolkit. Analyze user review sentiments, track top keyword search volumes, inspect developer portfolios, and track app pricing history.",
+    "capabilities": [
+      "App Store Keyword Ranking & Volume",
+      "User Review Scraping & Sentiment",
+      "App Pricing & Version History",
+      "Competitor App Details & Metadata"
+    ]
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase Cloud Platform",
+    "category": "cat-mcp-infra",
+    "category_title": "⚡ Cloud Infra & Docs",
+    "color": "#61dafb",
+    "github_url": "https://github.com/supabase/supabase",
+    "website_url": "https://supabase.com/docs/guides/ai/mcp",
+    "tool_count": 30,
+    "description": "Complete Supabase backend control. Execute SQL queries, manage database migrations, create database branches, deploy Edge Functions, and analyze security advisors.",
+    "capabilities": [
+      "Execute SQL & Manage Tables",
+      "Database Migrations & Branching",
+      "Deploy Edge Functions",
+      "Fetch Project Keys & API URLs",
+      "Query Logs & Performance Advisors"
+    ]
+  },
+  {
+    "id": "context7",
+    "name": "Context7 Documentation Engine",
+    "category": "cat-mcp-infra",
+    "category_title": "⚡ Cloud Infra & Docs",
+    "color": "#61dafb",
+    "github_url": "https://github.com/upstash/context7",
+    "website_url": "https://context7.com",
+    "tool_count": 3,
+    "description": "Real-time SDK and library documentation retrieval system. Resolves library identifiers and fetches exact, up-to-date API references to prevent coding hallucinations.",
+    "capabilities": [
+      "Real-Time Library ID Resolution",
+      "Direct Framework Documentation Query",
+      "Up-to-Date SDK Method Signatures"
+    ]
+  }
+]

@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Capabilities Map</title>
+  <title>Agent Skills & MCP Map</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
 
     :root {
       --bg-color: #050a15;
-      --panel-bg: rgba(10, 20, 40, 0.7);
+      --panel-bg: rgba(10, 20, 40, 0.85);
       --border-color: rgba(0, 255, 255, 0.2);
       --border-glow: rgba(0, 255, 255, 0.5);
       --text-main: #e0f2fe;
       --accent-1: #00ffff;
+      --accent-2: #ff00ff;
       --accent-3: #00ffaa;
       --font-heading: 'Orbitron', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
@@ -63,20 +64,6 @@
       50% {
         opacity: 1;
         box-shadow: 0 0 10px currentColor;
-      }
-    }
-
-    @keyframes borderGlow {
-
-      0%,
-      100% {
-        border-color: rgba(255, 255, 255, 0.1);
-        box-shadow: none;
-      }
-
-      50% {
-        border-color: var(--card-color);
-        box-shadow: 0 0 15px var(--card-color), inset 0 0 10px rgba(0, 0, 0, 0.5);
       }
     }
 
@@ -139,33 +126,107 @@
     }
 
     header {
-      text-align: center;
       margin-bottom: 2rem;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-container {
+      width: 100%;
+      max-width: 1400px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-titles {
+      margin-bottom: 0.5rem;
     }
 
     h1 {
       font-family: var(--font-heading);
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: var(--accent-1);
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       text-shadow: 0 0 10px var(--accent-1), 0 0 20px var(--accent-1);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      transition: all 0.3s;
     }
 
     .subtitle {
       font-family: var(--font-mono);
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--accent-3);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      opacity: 0.8;
+      opacity: 0.85;
+      transition: all 0.3s;
     }
 
+    /* Top Right Mode Switcher */
+    .view-switcher {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      background: rgba(10, 20, 40, 0.85);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      padding: 4px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+      gap: 6px;
+      z-index: 100;
+    }
 
+    .switcher-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      border-radius: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.65;
+    }
 
+    .switcher-btn:hover {
+      opacity: 1;
+      color: var(--accent-1);
+    }
 
+    .switcher-btn.active {
+      background: rgba(0, 255, 255, 0.18);
+      border-color: var(--accent-1);
+      color: var(--accent-1);
+      box-shadow: 0 0 14px rgba(0, 255, 255, 0.4), inset 0 0 8px rgba(0, 255, 255, 0.2);
+      opacity: 1;
+    }
+
+    @media (max-width: 992px) {
+      .header-container {
+        padding-top: 0.5rem;
+      }
+
+      .view-switcher {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+      }
+    }
 
     .dashboard {
       width: 100%;
@@ -214,15 +275,6 @@
       box-shadow: 0 10px 30px -10px var(--card-color);
     }
 
-
-
-
-
-
-
-
-
-
     .category-header {
       display: flex;
       justify-content: space-between;
@@ -234,9 +286,9 @@
 
     .category-title {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--card-color);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -271,6 +323,61 @@
       align-content: start;
     }
 
+    .mcp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .mcp-card-item {
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.85rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .mcp-card-item:hover {
+      border-color: var(--card-color);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(4px);
+    }
+
+    .mcp-card-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mcp-card-item-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .mcp-card-item-tools {
+      font-size: 0.75rem;
+      color: var(--card-color);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .mcp-card-item-desc {
+      font-size: 0.8rem;
+      color: rgba(224, 242, 254, 0.7);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .skill-badge {
       font-family: var(--font-mono);
       font-size: 0.9rem;
@@ -299,34 +406,6 @@
       color: var(--card-color);
     }
 
-    .cat-native {
-      --card-color: #61dafb;
-    }
-
-    .cat-motion {
-      --card-color: #ff00ff;
-    }
-
-    .cat-monetization {
-      --card-color: #00ffaa;
-    }
-
-    .cat-game {
-      --card-color: #ff3366;
-    }
-
-    .cat-db {
-      --card-color: #facc15;
-    }
-
-    .cat-frontend {
-      --card-color: #a855f7;
-    }
-
-    .cat-diag {
-      --card-color: #fb923c;
-    }
-
     /* Modal Overlay Styles */
     .modal {
       display: none;
@@ -337,8 +416,8 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(5, 10, 21, 0.9);
-      backdrop-filter: blur(5px);
+      background-color: rgba(5, 10, 21, 0.92);
+      backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
     }
@@ -346,11 +425,11 @@
     .modal-content {
       background: var(--panel-bg);
       border: 1px solid var(--border-glow);
-      padding: 20px;
+      padding: 24px;
       width: 90%;
-      max-width: 800px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
       max-height: 90vh;
       display: flex;
       flex-direction: column;
@@ -362,12 +441,13 @@
       align-items: center;
       margin-bottom: 1.5rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
     }
 
     .modal-header h2 {
       font-family: var(--font-heading);
       color: var(--text-main);
+      font-size: 1.4rem;
     }
 
     .close-btn {
@@ -385,38 +465,8 @@
     .modal-body {
       overflow-y: auto;
       flex-grow: 1;
-      padding-right: 10px;
+      padding-right: 8px;
     }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-    }
-
 
     .skill-cmd-container {
       display: flex;
@@ -428,7 +478,7 @@
     .skill-cmd {
       flex-grow: 1;
       background: rgba(0, 0, 0, 0.5);
-      padding: 0.5rem;
+      padding: 0.5rem 0.7rem;
       border-radius: 4px;
       font-size: 0.85rem;
       color: var(--accent-1);
@@ -444,7 +494,7 @@
       border: 1px solid var(--accent-1);
       color: var(--accent-1);
       border-radius: 4px;
-      padding: 0.4rem 0.6rem;
+      padding: 0.45rem 0.75rem;
       cursor: pointer;
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -455,6 +505,7 @@
 
     .copy-btn:hover {
       background: rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
     }
 
     .copy-btn:active {
@@ -464,6 +515,7 @@
     .copy-btn.copied {
       background: var(--accent-1);
       color: #000;
+      font-weight: bold;
     }
 
     .skill-title {
@@ -523,28 +575,166 @@
       display: flex;
       align-items: center;
     }
+
+    /* MCP Detailed Modal Cards */
+    .mcp-detail-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .mcp-server-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .mcp-server-card:hover {
+      border-color: var(--card-color);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .mcp-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .mcp-server-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--card-color);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mcp-badge-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .mcp-tool-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-color);
+      color: var(--card-color);
+      padding: 0.2rem 0.65rem;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .mcp-description {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: rgba(224, 242, 254, 0.9);
+      line-height: 1.45;
+    }
+
+    .mcp-caps-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .mcp-cap-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .mcp-links-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 0.3rem;
+    }
+
+    .mcp-link-btn {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      background: rgba(0, 255, 255, 0.08);
+      color: var(--accent-1);
+      transition: all 0.2s;
+    }
+
+    .mcp-link-btn:hover {
+      background: var(--accent-1);
+      color: #050a15;
+      box-shadow: 0 0 10px var(--accent-1);
+      transform: translateY(-1px);
+    }
+
+    .mcp-link-btn.secondary {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+    }
+
+    .mcp-link-btn.secondary:hover {
+      background: var(--text-main);
+      color: #050a15;
+      box-shadow: 0 0 10px var(--text-main);
+    }
   </style>
 </head>
 
 <body>
   <div class="scanner"></div>
+
   <header>
-    <h1>Agent Capabilities Map</h1>
-    <div class="subtitle">System Initialization: 25 Skill Packages Loaded</div>
+    <div class="header-container">
+      <div class="header-titles">
+        <h1 id="mainTitle">Agent Skills Map</h1>
+        <div id="mainSubtitle" class="subtitle">System Initialization: 25 Skill Packages (127 Skills) Loaded</div>
+      </div>
+      <div class="view-switcher">
+        <button id="skillsBtn" class="switcher-btn active" onclick="switchMode('skills')">
+          <span class="switcher-icon">⚡</span>
+          <span>Agent Skills</span>
+        </button>
+        <button id="mcpBtn" class="switcher-btn" onclick="switchMode('mcp')">
+          <span class="switcher-icon">🔌</span>
+          <span>MCP Servers</span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main class="dashboard">
     <div class="carousel-track" id="carouselTrack"></div>
-
-
   </main>
 
   <!-- Modal Overlay -->
   <div id="skillsModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="modal-title-container"><button id="modalBackBtn" class="back-btn" style="display:none;">&larr;
-            Back</button>
+        <div class="modal-title-container">
+          <button id="modalBackBtn" class="back-btn" style="display:none;">&larr; Back</button>
           <h2 id="modalTitle">Category</h2>
         </div>
         <span class="close-btn">&times;</span>
@@ -556,14 +746,150 @@
   </div>
 
   <script>
+    // 1. Agent Skills Dataset
     const categoriesData = {"cat-native": {"title": "📱 Native & Expo", "color": "#61dafb", "skills": [{"id": "expo/skills", "title": "Expo Skills", "install_cmd": "npx skills@latest add expo/skills --skill '*' -g", "sub_skills": [{"id": "add-app-clip", "title": "Add App Clip", "install_cmd": "npx skills@latest add add-app-clip -g"}, {"id": "building-native-ui", "title": "Building Native Ui", "install_cmd": "npx skills@latest add building-native-ui -g"}, {"id": "eas-update-insights", "title": "Eas Update Insights", "install_cmd": "npx skills@latest add eas-update-insights -g"}, {"id": "expo-api-routes", "title": "Expo Api Routes", "install_cmd": "npx skills@latest add expo-api-routes -g"}, {"id": "expo-brownfield", "title": "Expo Brownfield", "install_cmd": "npx skills@latest add expo-brownfield -g"}, {"id": "expo-cicd-workflows", "title": "Expo Cicd Workflows", "install_cmd": "npx skills@latest add expo-cicd-workflows -g"}, {"id": "expo-deployment", "title": "Expo Deployment", "install_cmd": "npx skills@latest add expo-deployment -g"}, {"id": "expo-dev-client", "title": "Expo Dev Client", "install_cmd": "npx skills@latest add expo-dev-client -g"}, {"id": "expo-examples", "title": "Expo Examples", "install_cmd": "npx skills@latest add expo-examples -g"}, {"id": "expo-module", "title": "Expo Module", "install_cmd": "npx skills@latest add expo-module -g"}, {"id": "expo-observe", "title": "Expo Observe", "install_cmd": "npx skills@latest add expo-observe -g"}, {"id": "expo-skill-eval", "title": "Expo Skill Eval", "install_cmd": "npx skills@latest add expo-skill-eval -g"}, {"id": "expo-tailwind-setup", "title": "Expo Tailwind Setup", "install_cmd": "npx skills@latest add expo-tailwind-setup -g"}, {"id": "expo-ui", "title": "Expo Ui", "install_cmd": "npx skills@latest add expo-ui -g"}, {"id": "native-data-fetching", "title": "Native Data Fetching", "install_cmd": "npx skills@latest add native-data-fetching -g"}, {"id": "upgrading-expo", "title": "Upgrading Expo", "install_cmd": "npx skills@latest add upgrading-expo -g"}, {"id": "use-dom", "title": "Use Dom", "install_cmd": "npx skills@latest add use-dom -g"}, {"id": "web-to-native", "title": "Web To Native", "install_cmd": "npx skills@latest add web-to-native -g"}]}, {"id": "code-with-beto/skills", "title": "Code With Beto Skills", "install_cmd": "npx skills@latest add code-with-beto/skills --skill '*' -g", "sub_skills": [{"id": "app-icon", "title": "App Icon", "install_cmd": "npx skills@latest add app-icon -g"}]}, {"id": "android/skills", "title": "Android Skills", "install_cmd": "npx skills@latest add android/skills --skill '*' -g", "sub_skills": [{"id": "play-policy-insights", "title": "Play Policy Insights", "install_cmd": "npx skills@latest add play-policy-insights -g"}]}]}, "cat-motion": {"title": "🎬 Motion & Anim", "color": "#ff00ff", "skills": [{"id": "LottieFiles/dotlottie-web", "title": "Lottiefiles Dotlottie Web Skills", "install_cmd": "npx skills@latest add LottieFiles/dotlottie-web --skill '*' -g", "sub_skills": [{"id": "dotlottie-web", "title": "Dotlottie Web", "install_cmd": "npx skills@latest add dotlottie-web -g"}]}, {"id": "heygen-com/hyperframes", "title": "Heygen Com Hyperframes Skills", "install_cmd": "npx skills@latest add heygen-com/hyperframes --skill '*' -g", "sub_skills": [{"id": "general-video", "title": "General Video", "install_cmd": "npx skills@latest add general-video -g"}, {"id": "hyperframes", "title": "Hyperframes", "install_cmd": "npx skills@latest add hyperframes -g"}, {"id": "hyperframes-animation", "title": "Hyperframes Animation", "install_cmd": "npx skills@latest add hyperframes-animation -g"}, {"id": "hyperframes-core", "title": "Hyperframes Core", "install_cmd": "npx skills@latest add hyperframes-core -g"}, {"id": "hyperframes-registry", "title": "Hyperframes Registry", "install_cmd": "npx skills@latest add hyperframes-registry -g"}, {"id": "motion-graphics", "title": "Motion Graphics", "install_cmd": "npx skills@latest add motion-graphics -g"}, {"id": "remotion-to-hyperframes", "title": "Remotion To Hyperframes", "install_cmd": "npx skills@latest add remotion-to-hyperframes -g"}, {"id": "slideshow", "title": "Slideshow", "install_cmd": "npx skills@latest add slideshow -g"}]}, {"id": "greensock/gsap-skills", "title": "Greensock Gsap Skills", "install_cmd": "npx skills@latest add greensock/gsap-skills --skill '*' -g", "sub_skills": [{"id": "gsap-core", "title": "Gsap Core", "install_cmd": "npx skills@latest add gsap-core -g"}, {"id": "gsap-performance", "title": "Gsap Performance", "install_cmd": "npx skills@latest add gsap-performance -g"}, {"id": "gsap-plugins", "title": "Gsap Plugins", "install_cmd": "npx skills@latest add gsap-plugins -g"}, {"id": "gsap-react", "title": "Gsap React", "install_cmd": "npx skills@latest add gsap-react -g"}, {"id": "gsap-scrolltrigger", "title": "Gsap Scrolltrigger", "install_cmd": "npx skills@latest add gsap-scrolltrigger -g"}, {"id": "gsap-timeline", "title": "Gsap Timeline", "install_cmd": "npx skills@latest add gsap-timeline -g"}, {"id": "gsap-utils", "title": "Gsap Utils", "install_cmd": "npx skills@latest add gsap-utils -g"}]}, {"id": "LottieFiles/motion-design-skill", "title": "Lottiefiles Motion Design Skill", "install_cmd": "npx skills@latest add LottieFiles/motion-design-skill --skill '*' -g", "sub_skills": [{"id": "motion-design", "title": "Motion Design", "install_cmd": "npx skills@latest add motion-design -g"}]}, {"id": "diffusionstudio/lottie", "title": "Diffusionstudio Lottie Skills", "install_cmd": "npx skills@latest add diffusionstudio/lottie --skill '*' -g", "sub_skills": [{"id": "text-to-lottie", "title": "Text To Lottie", "install_cmd": "npx skills@latest add text-to-lottie -g"}]}]}, "cat-monetization": {"title": "💰 Monetization", "color": "#00ffaa", "skills": [{"id": "RevenueCat/ai-toolkit", "title": "Revenuecat Ai Toolkit", "install_cmd": "npx skills@latest add RevenueCat/ai-toolkit --skill '*' -g", "sub_skills": [{"id": "create-revenuecat-project", "title": "Create Revenuecat Project", "install_cmd": "npx skills@latest add create-revenuecat-project -g"}, {"id": "integrate-revenuecat", "title": "Integrate Revenuecat", "install_cmd": "npx skills@latest add integrate-revenuecat -g"}, {"id": "revenuecat", "title": "Revenuecat", "install_cmd": "npx skills@latest add revenuecat -g"}, {"id": "revenuecat-charts", "title": "Revenuecat Charts", "install_cmd": "npx skills@latest add revenuecat-charts -g"}, {"id": "revenuecat-customer-center", "title": "Revenuecat Customer Center", "install_cmd": "npx skills@latest add revenuecat-customer-center -g"}, {"id": "revenuecat-entitlements-gate", "title": "Revenuecat Entitlements Gate", "install_cmd": "npx skills@latest add revenuecat-entitlements-gate -g"}, {"id": "revenuecat-identify-user", "title": "Revenuecat Identify User", "install_cmd": "npx skills@latest add revenuecat-identify-user -g"}, {"id": "revenuecat-migrate", "title": "Revenuecat Migrate", "install_cmd": "npx skills@latest add revenuecat-migrate -g"}, {"id": "revenuecat-paywall", "title": "Revenuecat Paywall", "install_cmd": "npx skills@latest add revenuecat-paywall -g"}, {"id": "revenuecat-purchase-flow", "title": "Revenuecat Purchase Flow", "install_cmd": "npx skills@latest add revenuecat-purchase-flow -g"}, {"id": "revenuecat-status", "title": "Revenuecat Status", "install_cmd": "npx skills@latest add revenuecat-status -g"}, {"id": "revenuecat-testing-setup", "title": "Revenuecat Testing Setup", "install_cmd": "npx skills@latest add revenuecat-testing-setup -g"}, {"id": "revenuecat-troubleshoot", "title": "Revenuecat Troubleshoot", "install_cmd": "npx skills@latest add revenuecat-troubleshoot -g"}]}, {"id": "superwall/skills", "title": "Superwall Skills", "install_cmd": "npx skills@latest add superwall/skills --skill '*' -g", "sub_skills": [{"id": "superwall", "title": "Superwall", "install_cmd": "npx skills@latest add superwall -g"}, {"id": "superwall-editor", "title": "Superwall Editor", "install_cmd": "npx skills@latest add superwall-editor -g"}]}]}, "cat-game": {"title": "🎮 Game Dev", "color": "#ff3366", "skills": [{"id": "majidmanzarpour/threejs-game-skills", "title": "Majidmanzarpour Threejs Game Skills", "install_cmd": "npx skills@latest add majidmanzarpour/threejs-game-skills --skill '*' -g", "sub_skills": [{"id": "threejs-3d-generator", "title": "Threejs 3D Generator", "install_cmd": "npx skills@latest add threejs-3d-generator -g"}, {"id": "threejs-aaa-graphics-builder", "title": "Threejs Aaa Graphics Builder", "install_cmd": "npx skills@latest add threejs-aaa-graphics-builder -g"}, {"id": "threejs-audio-generator", "title": "Threejs Audio Generator", "install_cmd": "npx skills@latest add threejs-audio-generator -g"}, {"id": "threejs-debug-profiler", "title": "Threejs Debug Profiler", "install_cmd": "npx skills@latest add threejs-debug-profiler -g"}, {"id": "threejs-game-director", "title": "Threejs Game Director", "install_cmd": "npx skills@latest add threejs-game-director -g"}, {"id": "threejs-game-ui-designer", "title": "Threejs Game Ui Designer", "install_cmd": "npx skills@latest add threejs-game-ui-designer -g"}, {"id": "threejs-gameplay-systems", "title": "Threejs Gameplay Systems", "install_cmd": "npx skills@latest add threejs-gameplay-systems -g"}, {"id": "threejs-image-generator", "title": "Threejs Image Generator", "install_cmd": "npx skills@latest add threejs-image-generator -g"}, {"id": "threejs-qa-release", "title": "Threejs Qa Release", "install_cmd": "npx skills@latest add threejs-qa-release -g"}]}, {"id": "scottstts/Threejs-Awesome-Graphics-Agent-Skills", "title": "Scottstts Threejs Awesome Graphics Agent Skills", "install_cmd": "npx skills@latest add scottstts/Threejs-Awesome-Graphics-Agent-Skills --skill '*' -g", "sub_skills": [{"id": "threejs-atmosphere-aerial-perspective", "title": "Threejs Atmosphere Aerial Perspective", "install_cmd": "npx skills@latest add threejs-atmosphere-aerial-perspective -g"}, {"id": "threejs-bloom", "title": "Threejs Bloom", "install_cmd": "npx skills@latest add threejs-bloom -g"}, {"id": "threejs-camera-direction", "title": "Threejs Camera Direction", "install_cmd": "npx skills@latest add threejs-camera-direction -g"}, {"id": "threejs-exposure-color-grading", "title": "Threejs Exposure Color Grading", "install_cmd": "npx skills@latest add threejs-exposure-color-grading -g"}, {"id": "threejs-image-pipeline", "title": "Threejs Image Pipeline", "install_cmd": "npx skills@latest add threejs-image-pipeline -g"}, {"id": "threejs-parallax-occlusion-mapping", "title": "Threejs Parallax Occlusion Mapping", "install_cmd": "npx skills@latest add threejs-parallax-occlusion-mapping -g"}, {"id": "threejs-precipitation-surfaces", "title": "Threejs Precipitation Surfaces", "install_cmd": "npx skills@latest add threejs-precipitation-surfaces -g"}, {"id": "threejs-procedural-animation", "title": "Threejs Procedural Animation", "install_cmd": "npx skills@latest add threejs-procedural-animation -g"}, {"id": "threejs-procedural-architecture", "title": "Threejs Procedural Architecture", "install_cmd": "npx skills@latest add threejs-procedural-architecture -g"}, {"id": "threejs-procedural-fields", "title": "Threejs Procedural Fields", "install_cmd": "npx skills@latest add threejs-procedural-fields -g"}, {"id": "threejs-procedural-geometry", "title": "Threejs Procedural Geometry", "install_cmd": "npx skills@latest add threejs-procedural-geometry -g"}, {"id": "threejs-procedural-materials", "title": "Threejs Procedural Materials", "install_cmd": "npx skills@latest add threejs-procedural-materials -g"}, {"id": "threejs-procedural-planets", "title": "Threejs Procedural Planets", "install_cmd": "npx skills@latest add threejs-procedural-planets -g"}, {"id": "threejs-procedural-vegetation", "title": "Threejs Procedural Vegetation", "install_cmd": "npx skills@latest add threejs-procedural-vegetation -g"}, {"id": "threejs-procedural-vfx", "title": "Threejs Procedural Vfx", "install_cmd": "npx skills@latest add threejs-procedural-vfx -g"}, {"id": "threejs-raymarched-space-effects", "title": "Threejs Raymarched Space Effects", "install_cmd": "npx skills@latest add threejs-raymarched-space-effects -g"}, {"id": "threejs-screen-space-ambient-occlusion", "title": "Threejs Screen Space Ambient Occlusion", "install_cmd": "npx skills@latest add threejs-screen-space-ambient-occlusion -g"}, {"id": "threejs-shadow-systems", "title": "Threejs Shadow Systems", "install_cmd": "npx skills@latest add threejs-shadow-systems -g"}, {"id": "threejs-skill-router", "title": "Threejs Skill Router", "install_cmd": "npx skills@latest add threejs-skill-router -g"}, {"id": "threejs-spectral-ocean", "title": "Threejs Spectral Ocean", "install_cmd": "npx skills@latest add threejs-spectral-ocean -g"}, {"id": "threejs-temporal-surfaces", "title": "Threejs Temporal Surfaces", "install_cmd": "npx skills@latest add threejs-temporal-surfaces -g"}, {"id": "threejs-visual-validation", "title": "Threejs Visual Validation", "install_cmd": "npx skills@latest add threejs-visual-validation -g"}, {"id": "threejs-volumetric-clouds", "title": "Threejs Volumetric Clouds", "install_cmd": "npx skills@latest add threejs-volumetric-clouds -g"}, {"id": "threejs-water-optics", "title": "Threejs Water Optics", "install_cmd": "npx skills@latest add threejs-water-optics -g"}]}]}, "cat-db": {"title": "🗄️ Database & Infra", "color": "#facc15", "skills": [{"id": "neondatabase/agent-skills", "title": "Neondatabase Agent Skills", "install_cmd": "npx skills@latest add neondatabase/agent-skills --skill '*' -g", "sub_skills": [{"id": "claimable-postgres", "title": "Claimable Postgres", "install_cmd": "npx skills@latest add claimable-postgres -g"}, {"id": "neon-postgres", "title": "Neon Postgres", "install_cmd": "npx skills@latest add neon-postgres -g"}, {"id": "neon-postgres-egress-optimizer", "title": "Neon Postgres Egress Optimizer", "install_cmd": "npx skills@latest add neon-postgres-egress-optimizer -g"}]}, {"id": "cloudflare/skills", "title": "Cloudflare Skills", "install_cmd": "npx skills@latest add cloudflare/skills --skill '*' -g", "sub_skills": [{"id": "cloudflare", "title": "Cloudflare", "install_cmd": "npx skills@latest add cloudflare -g"}]}, {"id": "mongodb/agent-skills", "title": "Mongodb Agent Skills", "install_cmd": "npx skills@latest add mongodb/agent-skills --skill '*' -g", "sub_skills": [{"id": "mongodb-schema-design", "title": "Mongodb Schema Design", "install_cmd": "npx skills@latest add mongodb-schema-design -g"}]}, {"id": "supabase/agent-skills", "title": "Supabase Agent Skills", "install_cmd": "npx skills@latest add supabase/agent-skills --skill '*' -g", "sub_skills": [{"id": "supabase", "title": "Supabase", "install_cmd": "npx skills@latest add supabase -g"}, {"id": "supabase-postgres-best-practices", "title": "Supabase Postgres Best Practices", "install_cmd": "npx skills@latest add supabase-postgres-best-practices -g"}]}, {"id": "better-auth/skills", "title": "Better Auth Skills", "install_cmd": "npx skills@latest add better-auth/skills --skill '*' -g", "sub_skills": [{"id": "better-auth-best-practices", "title": "Better Auth Best Practices", "install_cmd": "npx skills@latest add better-auth-best-practices -g"}, {"id": "create-auth", "title": "Create Auth", "install_cmd": "npx skills@latest add create-auth -g"}, {"id": "organization-best-practices", "title": "Organization Best Practices", "install_cmd": "npx skills@latest add organization-best-practices -g"}, {"id": "two-factor-authentication-best-practices", "title": "Two Factor Authentication Best Practices", "install_cmd": "npx skills@latest add two-factor-authentication-best-practices -g"}]}]}, "cat-frontend": {"title": "🎨 Frontend & Web", "color": "#a855f7", "skills": [{"id": "beyg1/App-ScreenShots-Generator-Skill", "title": "Beyg1 App Screenshots Generator Skill", "install_cmd": "npx skills@latest add beyg1/App-ScreenShots-Generator-Skill --skill '*' -g", "sub_skills": [{"id": "app-screenshot-generator", "title": "App Screenshot Generator", "install_cmd": "npx skills@latest add app-screenshot-generator -g"}]}, {"id": "Leonxlnx/taste-skill", "title": "Leonxlnx Taste Skill", "install_cmd": "npx skills@latest add Leonxlnx/taste-skill --skill '*' -g", "sub_skills": [{"id": "brandkit", "title": "Brandkit", "install_cmd": "npx skills@latest add brandkit -g"}, {"id": "design-taste-frontend", "title": "Design Taste Frontend", "install_cmd": "npx skills@latest add design-taste-frontend -g"}, {"id": "design-taste-frontend-v1", "title": "Design Taste Frontend V1", "install_cmd": "npx skills@latest add design-taste-frontend-v1 -g"}, {"id": "full-output-enforcement", "title": "Full Output Enforcement", "install_cmd": "npx skills@latest add full-output-enforcement -g"}, {"id": "gpt-taste", "title": "Gpt Taste", "install_cmd": "npx skills@latest add gpt-taste -g"}, {"id": "high-end-visual-design", "title": "High End Visual Design", "install_cmd": "npx skills@latest add high-end-visual-design -g"}, {"id": "image-to-code", "title": "Image To Code", "install_cmd": "npx skills@latest add image-to-code -g"}, {"id": "imagegen-frontend-mobile", "title": "Imagegen Frontend Mobile", "install_cmd": "npx skills@latest add imagegen-frontend-mobile -g"}, {"id": "imagegen-frontend-web", "title": "Imagegen Frontend Web", "install_cmd": "npx skills@latest add imagegen-frontend-web -g"}, {"id": "industrial-brutalist-ui", "title": "Industrial Brutalist Ui", "install_cmd": "npx skills@latest add industrial-brutalist-ui -g"}, {"id": "minimalist-ui", "title": "Minimalist Ui", "install_cmd": "npx skills@latest add minimalist-ui -g"}, {"id": "redesign-existing-projects", "title": "Redesign Existing Projects", "install_cmd": "npx skills@latest add redesign-existing-projects -g"}, {"id": "stitch-design-taste", "title": "Stitch Design Taste", "install_cmd": "npx skills@latest add stitch-design-taste -g"}]}, {"id": "mattpocock/skills", "title": "Mattpocock Skills", "install_cmd": "npx skills@latest add mattpocock/skills --skill '*' -g", "sub_skills": [{"id": "improve-codebase-architecture", "title": "Improve Codebase Architecture", "install_cmd": "npx skills@latest add improve-codebase-architecture -g"}]}, {"id": "pbakaus/impeccable", "title": "Pbakaus Impeccable Skills", "install_cmd": "npx skills@latest add pbakaus/impeccable --skill '*' -g", "sub_skills": [{"id": "impeccable", "title": "Impeccable", "install_cmd": "npx skills@latest add impeccable -g"}]}, {"id": "anthropics/skills", "title": "Anthropics Skills", "install_cmd": "npx skills@latest add anthropics/skills --skill '*' -g", "sub_skills": [{"id": "algorithmic-art", "title": "Algorithmic Art", "install_cmd": "npx skills@latest add algorithmic-art -g"}, {"id": "frontend-design", "title": "Frontend Design", "install_cmd": "npx skills@latest add frontend-design -g"}, {"id": "mcp-builder", "title": "Mcp Builder", "install_cmd": "npx skills@latest add mcp-builder -g"}, {"id": "skill-creator", "title": "Skill Creator", "install_cmd": "npx skills@latest add skill-creator -g"}]}, {"id": "emilkowalski/skills", "title": "Emilkowalski Skills", "install_cmd": "npx skills@latest add emilkowalski/skills --skill '*' -g", "sub_skills": [{"id": "animation-vocabulary", "title": "Animation Vocabulary", "install_cmd": "npx skills@latest add animation-vocabulary -g"}, {"id": "apple-design", "title": "Apple Design", "install_cmd": "npx skills@latest add apple-design -g"}, {"id": "emil-design-eng", "title": "Emil Design Eng", "install_cmd": "npx skills@latest add emil-design-eng -g"}, {"id": "find-animation-opportunities", "title": "Find Animation Opportunities", "install_cmd": "npx skills@latest add find-animation-opportunities -g"}, {"id": "improve-animations", "title": "Improve Animations", "install_cmd": "npx skills@latest add improve-animations -g"}, {"id": "pick-ui-library", "title": "Pick Ui Library", "install_cmd": "npx skills@latest add pick-ui-library -g"}, {"id": "prototype", "title": "Prototype", "install_cmd": "npx skills@latest add prototype -g"}, {"id": "review-animations", "title": "Review Animations", "install_cmd": "npx skills@latest add review-animations -g"}]}, {"id": "vercel-labs/agent-skills", "title": "Vercel Labs Agent Skills", "install_cmd": "npx skills@latest add vercel-labs/agent-skills --skill '*' -g", "sub_skills": [{"id": "vercel-react-view-transitions", "title": "Vercel React View Transitions", "install_cmd": "npx skills@latest add vercel-react-view-transitions -g"}]}]}, "cat-diag": {"title": "🛠️ Diagnostics", "color": "#fb923c", "skills": [{"id": "vercel-labs/skills", "title": "Vercel Labs Skills", "install_cmd": "npx skills@latest add vercel-labs/skills --skill '*' -g", "sub_skills": [{"id": "find-skills", "title": "Find Skills", "install_cmd": "npx skills@latest add find-skills -g"}]}]}};
 
+    // 2. MCP Servers Dataset
+    const mcpCategoriesData = {
+      "cat-mcp-design": {
+        "title": "🎨 3D & Creative UI",
+        "color": "#ff3366",
+        "servers": [
+          {
+            "id": "blender",
+            "title": "Blender 3D Engine",
+            "tool_count": 25,
+            "github_url": "https://github.com/ahujasid/blender-mcp",
+            "website_url": "https://blender-mcp.com",
+            "description": "Full Blender integration for 3D modeling, viewport capture, PolyHaven asset/texture downloads, Sketchfab 3D models, and Hyper3D / Hunyuan3D generative AI mesh creation.",
+            "capabilities": [
+              "3D Mesh & Scene Inspection",
+              "Python Script Execution",
+              "Viewport Screen Capture",
+              "PolyHaven Assets & HDRI",
+              "Sketchfab Model Downloads",
+              "Hyper3D / Rodin 3D Generation",
+              "Tencent Hunyuan3D Generation"
+            ]
+          },
+          {
+            "id": "mobbin",
+            "title": "Mobbin UI/UX Design",
+            "tool_count": 3,
+            "github_url": "https://github.com/georgespencer/mcp-remote",
+            "website_url": "https://mobbin.com",
+            "description": "Direct access to Mobbin's design system database. Search thousands of real-world iOS, Android, and Web UI screenshots, interaction flows, and section teardowns.",
+            "capabilities": [
+              "Search Mobile & Web Screens",
+              "Search User Interaction Flows",
+              "Search UI Section Components",
+              "Design Teardowns & Inspiration"
+            ]
+          }
+        ]
+      },
+      "cat-mcp-app": {
+        "title": "🚀 App & Monetization",
+        "color": "#00ffaa",
+        "servers": [
+          {
+            "id": "expo",
+            "title": "Expo Mobile Cloud",
+            "tool_count": 24,
+            "github_url": "https://github.com/expo/skills",
+            "website_url": "https://docs.expo.dev",
+            "description": "Official Expo cloud orchestration for React Native. Manage EAS builds, workflow runs, App Store & Play Store review responses, TestFlight crashes, and documentation.",
+            "capabilities": [
+              "EAS Build & Workflow Management",
+              "TestFlight Crashes & Feedback",
+              "Play Store Reviews & Responses",
+              "App Store Review Management",
+              "Official Expo Documentation Search"
+            ]
+          },
+          {
+            "id": "revenuecat",
+            "title": "RevenueCat In-App Purchases",
+            "tool_count": 87,
+            "github_url": "https://github.com/RevenueCat/ai-toolkit",
+            "website_url": "https://www.revenuecat.com/docs/tools/mcp",
+            "description": "Complete subscription and paywall infrastructure. Create entitlements, manage offerings, generate AI paywalls, run A/B pricing experiments, and query revenue analytics.",
+            "capabilities": [
+              "In-App Purchases & Subscriptions",
+              "AI Paywall Generation & Editing",
+              "A/B Testing & Pricing Experiments",
+              "Customer Center & Entitlements Gate",
+              "Real-Time Revenue Metrics & Charts"
+            ]
+          },
+          {
+            "id": "appreply-aso",
+            "title": "AppReply ASO Intelligence",
+            "tool_count": 11,
+            "github_url": "https://github.com/appreply-co/mcp-appstore",
+            "website_url": "https://appreply.io",
+            "description": "App Store & Play Store intelligence toolkit. Analyze user review sentiments, track top keyword search volumes, inspect developer portfolios, and track app pricing history.",
+            "capabilities": [
+              "App Store Keyword Ranking & Volume",
+              "User Review Scraping & Sentiment",
+              "App Pricing & Version History",
+              "Competitor App Details & Metadata"
+            ]
+          }
+        ]
+      },
+      "cat-mcp-infra": {
+        "title": "⚡ Cloud Infra & Docs",
+        "color": "#61dafb",
+        "servers": [
+          {
+            "id": "supabase",
+            "title": "Supabase Cloud Platform",
+            "tool_count": 30,
+            "github_url": "https://github.com/supabase/supabase",
+            "website_url": "https://supabase.com/docs/guides/ai/mcp",
+            "description": "Complete Supabase backend control. Execute SQL queries, manage database migrations, create database branches, deploy Edge Functions, and analyze security advisors.",
+            "capabilities": [
+              "Execute SQL & Manage Tables",
+              "Database Migrations & Branching",
+              "Deploy Edge Functions",
+              "Fetch Project Keys & API URLs",
+              "Query Logs & Performance Advisors"
+            ]
+          },
+          {
+            "id": "context7",
+            "title": "Context7 Docs Engine",
+            "tool_count": 3,
+            "github_url": "https://github.com/upstash/context7",
+            "website_url": "https://context7.com",
+            "description": "Real-time SDK and library documentation retrieval system. Resolves library identifiers and fetches exact, up-to-date API references to prevent coding hallucinations.",
+            "capabilities": [
+              "Real-Time Library ID Resolution",
+              "Direct Framework Documentation Query",
+              "Up-to-Date SDK Method Signatures"
+            ]
+          }
+        ]
+      }
+    };
 
+    // State Variables
+    let currentMode = 'skills'; // 'skills' | 'mcp'
     const modal = document.getElementById('skillsModal');
     const closeBtn = document.querySelector('.close-btn');
     const modalTitle = document.getElementById('modalTitle');
     const modalSkills = document.getElementById('modalSkills');
     const modalBackBtn = document.getElementById('modalBackBtn');
+    const carouselTrack = document.getElementById('carouselTrack');
+    const mainTitle = document.getElementById('mainTitle');
+    const mainSubtitle = document.getElementById('mainSubtitle');
+    const skillsBtn = document.getElementById('skillsBtn');
+    const mcpBtn = document.getElementById('mcpBtn');
+
+    let activeIndex = 0;
+    let cards = [];
+    let scrollAccumulator = 0;
 
     function copyToClipboard(text, btn) {
       navigator.clipboard.writeText(text).then(() => {
@@ -577,6 +903,7 @@
       });
     }
 
+    // Render Badge for Agent Skills
     function renderSkillBadge(skillObj, color, isSubSkill = false) {
       const badge = document.createElement('div');
       badge.className = 'skill-badge';
@@ -616,16 +943,19 @@
       return badge;
     }
 
+    // Open Agent Skills Category Modal
     function openCategoryModal(catId) {
       const catData = categoriesData[catId];
+      if (!catData) return;
+
       modalTitle.innerHTML = `<span style="color: ${catData.color}">` + catData.title + `</span>`;
       modalSkills.style.setProperty('--card-color', catData.color);
+      modalSkills.className = 'modal-skills-grid';
       modalBackBtn.style.display = 'none';
       modalSkills.innerHTML = '';
 
       catData.skills.forEach(skill => {
         const badge = renderSkillBadge(skill, catData.color);
-        // If they click the badge inside the modal, dive into sub-skills if applicable
         badge.addEventListener('click', () => {
           if (skill.sub_skills && skill.sub_skills.length > 0) {
             openSubSkillsModal(skill, catData.color, catId);
@@ -637,9 +967,11 @@
       modal.style.display = 'flex';
     }
 
+    // Open Agent Sub-skills Modal
     function openSubSkillsModal(skillObj, color, parentCatId = null) {
       modalTitle.innerHTML = `<span style="color: ${color}">` + skillObj.title + ` Sub-skills</span>`;
       modalSkills.style.setProperty('--card-color', color);
+      modalSkills.className = 'modal-skills-grid';
       modalSkills.innerHTML = '';
 
       if (parentCatId) {
@@ -651,26 +983,100 @@
 
       skillObj.sub_skills.forEach(sub => {
         const badge = renderSkillBadge(sub, color, true);
-        // Don't bind a deeper click handler for leaf nodes
         modalSkills.appendChild(badge);
       });
 
       modal.style.display = 'flex';
     }
 
-    // Main page events
+    // Open MCP Category Modal with Server Details
+    function openMcpCategoryModal(catId) {
+      const catData = mcpCategoriesData[catId];
+      if (!catData) return;
 
+      modalTitle.innerHTML = `<span style="color: ${catData.color}">` + catData.title + `</span>`;
+      modalSkills.style.setProperty('--card-color', catData.color);
+      modalSkills.className = 'mcp-detail-grid';
+      modalBackBtn.style.display = 'none';
+      modalSkills.innerHTML = '';
 
+      catData.servers.forEach(server => {
+        const card = document.createElement('div');
+        card.className = 'mcp-server-card';
+        card.style.setProperty('--card-color', catData.color);
 
+        // Header
+        const header = document.createElement('div');
+        header.className = 'mcp-card-header';
 
-    const carouselTrack = document.getElementById('carouselTrack');
+        const title = document.createElement('div');
+        title.className = 'mcp-server-title';
+        title.textContent = server.title;
 
-    let activeIndex = 0;
-    let cards = [];
-    let scrollAccumulator = 0;
+        const badgeGroup = document.createElement('div');
+        badgeGroup.className = 'mcp-badge-group';
 
-    // Function to build a single card HTML string
-    function createCardHTML(catId, catData) {
+        const toolPill = document.createElement('span');
+        toolPill.className = 'mcp-tool-pill';
+        toolPill.textContent = `${server.tool_count} Tools`;
+
+        badgeGroup.appendChild(toolPill);
+        header.appendChild(title);
+        header.appendChild(badgeGroup);
+        card.appendChild(header);
+
+        // Description
+        const desc = document.createElement('div');
+        desc.className = 'mcp-description';
+        desc.textContent = server.description;
+        card.appendChild(desc);
+
+        // Capabilities Tags
+        if (server.capabilities && server.capabilities.length > 0) {
+          const capsContainer = document.createElement('div');
+          capsContainer.className = 'mcp-caps-container';
+          server.capabilities.forEach(cap => {
+            const capTag = document.createElement('span');
+            capTag.className = 'mcp-cap-tag';
+            capTag.textContent = cap;
+            capsContainer.appendChild(capTag);
+          });
+          card.appendChild(capsContainer);
+        }
+
+        // Links Row
+        const linksRow = document.createElement('div');
+        linksRow.className = 'mcp-links-row';
+
+        if (server.github_url) {
+          const ghLink = document.createElement('a');
+          ghLink.className = 'mcp-link-btn';
+          ghLink.href = server.github_url;
+          ghLink.target = '_blank';
+          ghLink.rel = 'noopener noreferrer';
+          ghLink.innerHTML = '<span>⚡</span> GitHub Repo';
+          linksRow.appendChild(ghLink);
+        }
+
+        if (server.website_url) {
+          const webLink = document.createElement('a');
+          webLink.className = 'mcp-link-btn secondary';
+          webLink.href = server.website_url;
+          webLink.target = '_blank';
+          webLink.rel = 'noopener noreferrer';
+          webLink.innerHTML = '<span>🌐</span> Official Docs';
+          linksRow.appendChild(webLink);
+        }
+
+        card.appendChild(linksRow);
+        modalSkills.appendChild(card);
+      });
+
+      modal.style.display = 'flex';
+    }
+
+    // Build Single Card HTML for Agent Skills Mode
+    function createSkillsCardHTML(catId, catData) {
       const count = catData.skills.length;
       if (count === 0) return '';
 
@@ -696,14 +1102,41 @@
       return html;
     }
 
+    // Build Single Card HTML for MCP Servers Mode
+    function createMcpCardHTML(catId, catData) {
+      const count = catData.servers.length;
+      if (count === 0) return '';
+
+      let html = `<div class="category-card ${catId}" data-category="${catId}" style="--card-color: ${catData.color};">
+        <div class="category-header">
+          <h2 class="category-title"><span class="status-dot"></span>${catData.title}</h2>
+          <span class="skill-count">${count} MCPs</span>
+        </div>
+        <div class="mcp-grid">`;
+
+      catData.servers.forEach(s => {
+        html += `<div class="mcp-card-item" title="${s.title}">
+          <div class="mcp-card-item-header">
+            <span class="mcp-card-item-title">${s.title}</span>
+            <span class="mcp-card-item-tools">${s.tool_count} Tools</span>
+          </div>
+          <div class="mcp-card-item-desc">${s.description}</div>
+        </div>`;
+      });
+
+      html += `</div></div>`;
+      return html;
+    }
+
+    // Update 3D Cover Flow Positions with GSAP
     function updateCoverFlow(animDuration = 0.6) {
       cards.forEach((card, i) => {
         const offset = i - activeIndex;
 
-        let x = offset * 420; // Adjusted distance for the 400px wide cards
+        let x = offset * 420;
         let scale = offset === 0 ? 1 : 0.85;
         let opacity = offset === 0 ? 1 : (Math.abs(offset) > 2 ? 0 : 0.5);
-        let rotationY = offset === 0 ? 0 : (offset > 0 ? -40 : 40); // Tilted INWARDS towards the center
+        let rotationY = offset === 0 ? 0 : (offset > 0 ? -40 : 40); // Inward tilt
         let zIndex = 50 - Math.abs(offset);
 
         gsap.to(card, {
@@ -719,90 +1152,28 @@
       });
     }
 
+    // Initialize 3D Carousel
     function initCarousel() {
       let cardsHTML = '';
-      for (const [catId, catData] of Object.entries(categoriesData)) {
-        cardsHTML += createCardHTML(catId, catData);
+
+      if (currentMode === 'skills') {
+        for (const [catId, catData] of Object.entries(categoriesData)) {
+          cardsHTML += createSkillsCardHTML(catId, catData);
+        }
+      } else {
+        for (const [catId, catData] of Object.entries(mcpCategoriesData)) {
+          cardsHTML += createMcpCardHTML(catId, catData);
+        }
       }
 
       carouselTrack.innerHTML = cardsHTML;
       cards = document.querySelectorAll('.category-card');
-      activeIndex = Math.floor(cards.length / 2); // Start in the middle
+      activeIndex = Math.floor(cards.length / 2);
 
-      // Initial load animation - much slower for dramatic effect
-      updateCoverFlow(2.5);
+      // Smooth initial positioning
+      updateCoverFlow(2.0);
 
-      // Scroll support for cover flow
-      window.addEventListener('wheel', (e) => {
-        // Prevent default scrolling if hovering over the dashboard area to stop page from jumping
-        if (e.target.closest('.dashboard')) {
-          e.preventDefault();
-        }
-
-        // Accumulate scroll delta
-        scrollAccumulator += (e.deltaY + e.deltaX);
-
-        // Threshold to trigger next/prev card
-        if (scrollAccumulator > 80) {
-          if (activeIndex < cards.length - 1) {
-            activeIndex++;
-            updateCoverFlow();
-          }
-          scrollAccumulator = 0;
-        } else if (scrollAccumulator < -80) {
-          if (activeIndex > 0) {
-            activeIndex--;
-            updateCoverFlow();
-          }
-          scrollAccumulator = 0;
-        }
-      }, { passive: false });
-
-
-      // Touch support for cover flow
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      window.addEventListener('touchstart', (e) => {
-        if (e.target.closest('.dashboard')) {
-          touchStartX = e.changedTouches[0].screenX;
-        }
-      }, { passive: true });
-
-      window.addEventListener('touchend', (e) => {
-        if (e.target.closest('.dashboard')) {
-          touchEndX = e.changedTouches[0].screenX;
-          const deltaX = touchStartX - touchEndX; // positive means swiped left (next card)
-          const absDelta = Math.abs(deltaX);
-          
-          if (absDelta > 40) {
-            // Determine how many cards to scroll based on swipe intensity (1 card per 80px)
-            let cardsToScroll = Math.max(1, Math.floor(absDelta / 80));
-            
-            if (deltaX > 0) {
-              // Swiped left
-              activeIndex = Math.min(cards.length - 1, activeIndex + cardsToScroll);
-            } else {
-              // Swiped right
-              activeIndex = Math.max(0, activeIndex - cardsToScroll);
-            }
-            updateCoverFlow();
-          }
-        }
-      }, { passive: true });
-
-      // Keyboard support
-
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && activeIndex > 0) {
-          activeIndex--;
-          updateCoverFlow();
-        } else if (e.key === 'ArrowRight' && activeIndex < cards.length - 1) {
-          activeIndex++;
-          updateCoverFlow();
-        }
-      });
-
+      // Card hover animations
       cards.forEach((card, i) => {
         card.addEventListener('mouseenter', () => {
           gsap.to(card, {
@@ -826,48 +1197,130 @@
 
         card.addEventListener('click', (e) => {
           if (i !== activeIndex) {
-            e.stopPropagation(); // prevent opening modal
+            e.stopPropagation();
             activeIndex = i;
             updateCoverFlow();
           }
         });
       });
 
-      // Bind events to dynamically created cards
       bindCardEvents();
     }
 
+    // Bind Click Events on Category Cards
     function bindCardEvents() {
-
-
-
       document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', (e) => {
-          const badgeEl = e.target.closest('.skill-badge');
           const catId = card.getAttribute('data-category');
-          const catData = categoriesData[catId];
 
-          if (badgeEl && !badgeEl.classList.contains('more-badge')) {
-            const pkgId = badgeEl.getAttribute('title');
-            const pkgData = catData.skills.find(s => s.id === pkgId);
-            if (pkgData) {
-              if (pkgData.sub_skills && pkgData.sub_skills.length > 0) {
+          if (currentMode === 'skills') {
+            const badgeEl = e.target.closest('.skill-badge');
+            const catData = categoriesData[catId];
+
+            if (badgeEl && !badgeEl.classList.contains('more-badge')) {
+              const pkgId = badgeEl.getAttribute('title');
+              const pkgData = catData.skills.find(s => s.id === pkgId);
+              if (pkgData && pkgData.sub_skills && pkgData.sub_skills.length > 0) {
                 openSubSkillsModal(pkgData, catData.color);
               } else {
                 openCategoryModal(catId);
               }
+            } else {
+              openCategoryModal(catId);
             }
           } else {
-            openCategoryModal(catId);
+            openMcpCategoryModal(catId);
           }
         });
       });
     }
 
-    // Initialize Marquee on load
-    initCarousel();
+    // Switch between Agent Skills and MCP Servers
+    function switchMode(mode, updateHash = true) {
+      if (mode === currentMode) return;
+      currentMode = mode;
 
+      if (mode === 'skills') {
+        skillsBtn.classList.add('active');
+        mcpBtn.classList.remove('active');
+        mainTitle.textContent = 'Agent Skills Map';
+        mainSubtitle.textContent = 'System Initialization: 25 Skill Packages (127 Skills) Loaded';
+        if (updateHash) window.location.hash = '#skills';
+      } else {
+        mcpBtn.classList.add('active');
+        skillsBtn.classList.remove('active');
+        mainTitle.textContent = 'MCP MAP';
+        mainSubtitle.textContent = 'System Active: 7 MCP Servers Configured (183 Tools)';
+        if (updateHash) window.location.hash = '#mcp';
+      }
 
+      initCarousel();
+    }
+
+    // Wheel Scroll Support
+    window.addEventListener('wheel', (e) => {
+      if (e.target.closest('.dashboard')) {
+        e.preventDefault();
+      }
+
+      scrollAccumulator += (e.deltaY + e.deltaX);
+
+      if (scrollAccumulator > 80) {
+        if (activeIndex < cards.length - 1) {
+          activeIndex++;
+          updateCoverFlow();
+        }
+        scrollAccumulator = 0;
+      } else if (scrollAccumulator < -80) {
+        if (activeIndex > 0) {
+          activeIndex--;
+          updateCoverFlow();
+        }
+        scrollAccumulator = 0;
+      }
+    }, { passive: false });
+
+    // Touch Support for Cover Flow with Intensity Multiplier
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      if (e.target.closest('.dashboard')) {
+        touchStartX = e.changedTouches[0].screenX;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (e.target.closest('.dashboard')) {
+        touchEndX = e.changedTouches[0].screenX;
+        const deltaX = touchStartX - touchEndX;
+        const absDelta = Math.abs(deltaX);
+
+        if (absDelta > 40) {
+          let cardsToScroll = Math.max(1, Math.floor(absDelta / 80));
+
+          if (deltaX > 0) {
+            activeIndex = Math.min(cards.length - 1, activeIndex + cardsToScroll);
+          } else {
+            activeIndex = Math.max(0, activeIndex - cardsToScroll);
+          }
+          updateCoverFlow();
+        }
+      }
+    }, { passive: true });
+
+    // Keyboard Arrow Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' && activeIndex > 0) {
+        activeIndex--;
+        updateCoverFlow();
+      } else if (e.key === 'ArrowRight' && activeIndex < cards.length - 1) {
+        activeIndex++;
+        updateCoverFlow();
+      }
+    });
+
+    // Close Modal
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';
     });
@@ -878,6 +1331,21 @@
       }
     });
 
+    // Handle Hash Routing
+    function handleRouting() {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#mcp') {
+        switchMode('mcp', false);
+      } else {
+        switchMode('skills', false);
+      }
+    }
+
+    window.addEventListener('hashchange', handleRouting);
+
+    // Initial Load
+    handleRouting();
+    initCarousel();
   </script>
 </body>
 

@@ -544,6 +544,102 @@
     "sourceType": "github"
   },
   {
+    "name": "remotion-best-practices",
+    "path": "/home/darth/.agents/skills/remotion-best-practices",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-captions",
+    "path": "/home/darth/.agents/skills/remotion-captions",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-create",
+    "path": "/home/darth/.agents/skills/remotion-create",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-docs",
+    "path": "/home/darth/.agents/skills/remotion-docs",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-interactivity",
+    "path": "/home/darth/.agents/skills/remotion-interactivity",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-maps",
+    "path": "/home/darth/.agents/skills/remotion-maps",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-markup",
+    "path": "/home/darth/.agents/skills/remotion-markup",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-multimedia",
+    "path": "/home/darth/.agents/skills/remotion-multimedia",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-render",
+    "path": "/home/darth/.agents/skills/remotion-render",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-saas",
+    "path": "/home/darth/.agents/skills/remotion-saas",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-studio",
+    "path": "/home/darth/.agents/skills/remotion-studio",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "remotion-upgrade",
+    "path": "/home/darth/.agents/skills/remotion-upgrade",
+    "scope": "global",
+    "source": "remotion-dev/skills",
+    "sourceUrl": "https://github.com/remotion-dev/skills.git",
+    "sourceType": "github"
+  },
+  {
     "name": "remotion-to-hyperframes",
     "path": "/home/darth/.agents/skills/remotion-to-hyperframes",
     "scope": "global",

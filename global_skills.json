@@ -48,6 +48,14 @@
     "sourceType": "github"
   },
   {
+    "name": "assess-react-native-migration",
+    "path": "/home/darth/.agents/skills/assess-react-native-migration",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
+    "sourceType": "github"
+  },
+  {
     "name": "better-auth-best-practices",
     "path": "/home/darth/.agents/skills/better-auth-best-practices",
     "scope": "global",
@@ -93,6 +101,14 @@
     "scope": "global",
     "source": "better-auth/skills",
     "sourceUrl": "https://github.com/better-auth/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "create-react-native-library",
+    "path": "/home/darth/.agents/skills/create-react-native-library",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
     "sourceType": "github"
   },
   {
@@ -533,6 +549,38 @@
     "scope": "global",
     "source": "emilkowalski/skills",
     "sourceUrl": "https://github.com/emilkowalski/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "react-native-best-practices",
+    "path": "/home/darth/.agents/skills/react-native-best-practices",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "react-native-brownfield-migration",
+    "path": "/home/darth/.agents/skills/react-native-brownfield-migration",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "react-native-tv-best-practices",
+    "path": "/home/darth/.agents/skills/react-native-tv-best-practices",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "react-navigation",
+    "path": "/home/darth/.agents/skills/react-navigation",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
     "sourceType": "github"
   },
   {
@@ -1085,6 +1133,14 @@
     "scope": "global",
     "source": "expo/skills",
     "sourceUrl": "https://github.com/expo/skills.git",
+    "sourceType": "github"
+  },
+  {
+    "name": "upgrading-react-native",
+    "path": "/home/darth/.agents/skills/upgrading-react-native",
+    "scope": "global",
+    "source": "callstackincubator/agent-skills",
+    "sourceUrl": "https://github.com/callstackincubator/agent-skills.git",
     "sourceType": "github"
   },
   {

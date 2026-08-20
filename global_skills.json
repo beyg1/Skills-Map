@@ -48,6 +48,14 @@
     "sourceType": "github"
   },
   {
+    "name": "appllama-app-design-skill",
+    "path": "/home/darth/.agents/skills/appllama-app-design-skill",
+    "scope": "global",
+    "source": "Appllama/appllama-skills",
+    "sourceUrl": "https://github.com/Appllama/appllama-skills.git",
+    "sourceType": "github"
+  },
+  {
     "name": "assess-react-native-migration",
     "path": "/home/darth/.agents/skills/assess-react-native-migration",
     "scope": "global",
